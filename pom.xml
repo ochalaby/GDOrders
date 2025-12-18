@@ -1,0 +1,204 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" 
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 
+                             http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.chalabysolutions</groupId>
+    <artifactId>gdorders-converter</artifactId>
+    <version>1.0.2</version>
+    <packaging>jar</packaging>
+
+    <properties>
+        <java.version>17</java.version>
+		<main.class>com.chalabysolutions.gdorders.MainApp</main.class>
+        <generated.sources.dir>${project.build.directory}/generated-sources/jaxb</generated.sources.dir>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <vaadin.version>24.2.5</vaadin.version>
+    </properties>
+
+    <dependencies>
+        <!-- Vaadin + Spring Boot -->
+        <dependency>
+            <groupId>com.vaadin</groupId>
+            <artifactId>vaadin-spring-boot-starter</artifactId>
+            <version>${vaadin.version}</version>
+        </dependency>
+
+        <!-- Lombok for getter/setter generation -->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.30</version> <!-- check voor de nieuwste versie -->
+            <scope>provided</scope>
+        </dependency>
+
+        <!-- JAXB runtime for Java 17 -->
+        <dependency>
+            <groupId>jakarta.xml.bind</groupId>
+            <artifactId>jakarta.xml.bind-api</artifactId>
+            <version>3.0.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.glassfish.jaxb</groupId>
+            <artifactId>jaxb-runtime</artifactId>
+            <version>3.0.2</version>
+        </dependency>
+
+    </dependencies>
+
+    <build>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
+        <plugins>
+            <!-- Jaxb plugin voor code generatie op basis van xsd's -->
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>jaxb2-maven-plugin</artifactId>
+                <version>3.1.0</version>
+                <configuration>
+                    <outputDirectory>${generated.sources.dir}</outputDirectory>
+                    <clearOutputDir>false</clearOutputDir>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>xjc-customer-orders</id>
+                        <goals>
+                            <goal>xjc</goal>
+                        </goals>
+                        <configuration>
+                            <packageName>com.chalabysolutions.gdorders.model.customerorders</packageName>
+                            <sources>
+                                <source>src/main/resources/xsd/CustomerOrders.xsd</source>
+                            </sources>
+                            <xjbSources>
+                                <xjbSource>src/main/resources/xjb/CustomerOrders-bindings.xjb</xjbSource>
+                            </xjbSources>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>xjc-internal-orders</id>
+                        <goals>
+                            <goal>xjc</goal>
+                        </goals>
+                        <configuration>
+                            <packageName>com.chalabysolutions.gdorders.model.internalorders</packageName>
+                            <sources>
+                                <source>src/main/resources/xsd/InternalOrders.xsd</source>
+                            </sources>
+                            <xjbSources>
+                                <xjbSource>src/main/resources/xjb/InternalOrders-bindings.xjb</xjbSource>
+                            </xjbSources>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>xjc-internal-accounts</id>
+                        <goals>
+                            <goal>xjc</goal>
+                        </goals>
+                        <configuration>
+                            <packageName>com.chalabysolutions.gdorders.model.internalaccounts</packageName>
+                            <sources>
+                                <source>src/main/resources/xsd/InternalAccounts.xsd</source>
+                            </sources>
+                            <xjbSources>
+                                <xjbSource>src/main/resources/xjb/InternalAccounts-bindings.xjb</xjbSource>
+                            </xjbSources>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <!-- Compiler plugin -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.11.0</version>
+                <configuration>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
+                    <annotationProcessorPaths>
+                        <path>
+                            <groupId>org.projectlombok</groupId>
+                            <artifactId>lombok</artifactId>
+                            <version>1.18.30</version>
+                        </path>
+                    </annotationProcessorPaths>
+                </configuration>
+            </plugin>
+
+            <!-- Prepare frontend for production-like runnable jar -->
+            <plugin>
+                <groupId>com.vaadin</groupId>
+                <artifactId>vaadin-maven-plugin</artifactId>
+                <version>${vaadin.version}</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>prepare-frontend</goal>
+                            <goal>build-frontend</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+			
+			<!-- Spring Boot plugin om standalone JAR te maken -->
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>3.2.2</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>repackage</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <!-- Jar plugin and create manifest -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>3.3.0</version>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <addClasspath>true</addClasspath>
+                            <mainClass>${main.class}</mainClass>
+                        </manifest>
+                    </archive>
+                </configuration>
+            </plugin>
+
+            <!-- assemply plugin om een distributie te genereren -->
+            <plugin>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <version>3.6.0</version>
+                <configuration>
+                    <descriptors>
+                        <descriptor>src/assembly/distribution.xml</descriptor>
+                    </descriptors>
+                    <filters>
+                        <filter>src/main/distribution/filter.properties</filter>
+                    </filters>
+                    <finalName>GDOrdersConverter</finalName>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>make-assembly</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+</project>

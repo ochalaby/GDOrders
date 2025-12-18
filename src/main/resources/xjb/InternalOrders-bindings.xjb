@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<jaxb:bindings version="3.0" xmlns:jaxb="https://jakarta.ee/xml/ns/jaxb"
+               xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+               jaxb:extensionBindingPrefixes="xjc">
+
+    <jaxb:globalBindings>
+        <xjc:simple />
+        <xjc:serializable uid="-1" />
+        <jaxb:javaType name="java.util.Calendar" xmlType="xs:dateTime"
+                       parseMethod="jakarta.xml.bind.DatatypeConverter.parseDateTime"
+                       printMethod="jakarta.xml.bind.DatatypeConverter.printDateTime" />
+    </jaxb:globalBindings>
+
+    <!-- Bind aan jouw schema -->
+    <jaxb:bindings schemaLocation="../xsd/InternalOrders.xsd">
+
+<!--        &lt;!&ndash; ========================================= &ndash;&gt;-->
+<!--        &lt;!&ndash;  ROOT TYPE                                &ndash;&gt;-->
+<!--        &lt;!&ndash; ========================================= &ndash;&gt;-->
+
+<!--        <jaxb:bindings node="//xs:complexType[@name='SalesOrders']">-->
+<!--            <jaxb:class name="InternalSalesOrders"/>-->
+<!--        </jaxb:bindings>-->
+
+<!--        &lt;!&ndash; ========================================= &ndash;&gt;-->
+<!--        &lt;!&ndash;  ORDER INFO                                &ndash;&gt;-->
+<!--        &lt;!&ndash; ========================================= &ndash;&gt;-->
+
+<!--        <jaxb:bindings node="//xs:complexType[@name='SalesOrder']">-->
+<!--            <jaxb:class name="InternalSalesOrder"/>-->
+<!--        </jaxb:bindings>-->
+
+<!--        &lt;!&ndash; ========================================= &ndash;&gt;-->
+<!--        &lt;!&ndash;  ACCOUNT REFERENCE                        &ndash;&gt;-->
+<!--        &lt;!&ndash; ========================================= &ndash;&gt;-->
+
+<!--        <jaxb:bindings node="//xs:complexType[@name='AccountRef']">-->
+<!--            <jaxb:class name="InternalAccountRef"/>-->
+<!--        </jaxb:bindings>-->
+
+<!--        &lt;!&ndash; ========================================= &ndash;&gt;-->
+<!--        &lt;!&ndash;  ADDRESS REFERENCE                        &ndash;&gt;-->
+<!--        &lt;!&ndash; ========================================= &ndash;&gt;-->
+
+<!--        <jaxb:bindings node="//xs:complexType[@name='AddressRef']">-->
+<!--            <jaxb:class name="InternalAddressRef"/>-->
+<!--        </jaxb:bindings>-->
+
+<!--        &lt;!&ndash; ========================================= &ndash;&gt;-->
+<!--        &lt;!&ndash;  WAREHOUSE                                &ndash;&gt;-->
+<!--        &lt;!&ndash; ========================================= &ndash;&gt;-->
+
+<!--        <jaxb:bindings node="//xs:complexType[@name='Warehouse']">-->
+<!--            <jaxb:class name="InternalWarehouse"/>-->
+<!--        </jaxb:bindings>-->
+
+<!--        &lt;!&ndash; ========================================= &ndash;&gt;-->
+<!--        &lt;!&ndash;  SHIPPING METHOD                          &ndash;&gt;-->
+<!--        &lt;!&ndash; ========================================= &ndash;&gt;-->
+
+<!--        <jaxb:bindings node="//xs:complexType[@name='ShippingMethod']">-->
+<!--            <jaxb:class name="InternalShippingMethod"/>-->
+<!--        </jaxb:bindings>-->
+
+<!--        &lt;!&ndash; ========================================= &ndash;&gt;-->
+<!--        &lt;!&ndash;  ORDER LINE                               &ndash;&gt;-->
+<!--        &lt;!&ndash; ========================================= &ndash;&gt;-->
+
+<!--        <jaxb:bindings node="//xs:complexType[@name='SalesOrderLine']">-->
+<!--            <jaxb:class name="InternalSalesOrderLine"/>-->
+<!--        </jaxb:bindings>-->
+
+<!--        &lt;!&ndash; ========================================= &ndash;&gt;-->
+<!--        &lt;!&ndash;  ITEM REFERENCE                           &ndash;&gt;-->
+<!--        &lt;!&ndash; ========================================= &ndash;&gt;-->
+
+<!--        <jaxb:bindings node="//xs:complexType[@name='ItemRef']">-->
+<!--            <jaxb:class name="InternalItemRef"/>-->
+<!--        </jaxb:bindings>-->
+
+<!--        &lt;!&ndash; ========================================= &ndash;&gt;-->
+<!--        &lt;!&ndash;  MESSAGES                                 &ndash;&gt;-->
+<!--        &lt;!&ndash; ========================================= &ndash;&gt;-->
+
+<!--        <jaxb:bindings node="//xs:complexType[@name='Messages']">-->
+<!--            <jaxb:class name="InternalMessages"/>-->
+<!--        </jaxb:bindings>-->
+
+
+        <!-- deliveryaddress/addressline1 (attribute) -->
+        <jaxb:bindings node="//xs:element[@name='DeliveryAddress']//xs:attribute[@name='AddressLine1']">
+            <jaxb:property name="addressLine1Attr"/>
+        </jaxb:bindings>
+
+        <!-- addressline2 -->
+        <jaxb:bindings node="//xs:element[@name='DeliveryAddress']//xs:attribute[@name='AddressLine2']">
+            <jaxb:property name="addressLine2Attr"/>
+        </jaxb:bindings>
+
+        <!-- addressline3 -->
+        <jaxb:bindings node="//xs:element[@name='DeliveryAddress']//xs:attribute[@name='AddressLine3']">
+            <jaxb:property name="addressLine3Attr"/>
+        </jaxb:bindings>
+
+        <!-- postalcode -->
+        <jaxb:bindings node="//xs:element[@name='DeliveryAddress']//xs:attribute[@name='PostalCode']">
+            <jaxb:property name="postalCodeAttr"/>
+        </jaxb:bindings>
+
+        <!-- city -->
+        <jaxb:bindings node="//xs:element[@name='DeliveryAddress']//xs:attribute[@name='City']">
+            <jaxb:property name="cityAttr"/>
+        </jaxb:bindings>
+
+        <!-- statecode -->
+        <jaxb:bindings node="//xs:element[@name='DeliveryAddress']//xs:attribute[@name='StateCode']">
+            <jaxb:property name="stateCodeAttr"/>
+        </jaxb:bindings>
+
+        <!-- countrycode -->
+        <jaxb:bindings node="//xs:element[@name='DeliveryAddress']//xs:attribute[@name='CountryCode']">
+            <jaxb:property name="countryCodeAttr"/>
+        </jaxb:bindings>
+
+    </jaxb:bindings>
+</jaxb:bindings>
+
+
+

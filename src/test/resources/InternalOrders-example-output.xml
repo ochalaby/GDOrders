@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<eExact xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="eExact-XML.xsd">
+	<SalesOrders>
+		<SalesOrder salesordernumber="272" status="12">
+			<OrderDate>2025-10-28</OrderDate>
+			<DeliveryDate>2025-11-02</DeliveryDate>
+			<YourRef>B20659</YourRef>
+			<OrderedBy ID="{497b677c-e0a8-4eca-9000-e7ca50f47cae}" code="20002720">
+				<Name>SMART. Klantcontact</Name>
+			</OrderedBy>
+			<DeliverTo ID="{497b677c-e0a8-4eca-9000-e7ca50f47cae}" code="20002720">
+				<Name>SMART. Klantcontact</Name>
+			</DeliverTo>
+			<DeliveryAddress ID="{fe8d3887-6295-4e79-9090-b1e435f68513}">
+			</DeliveryAddress>
+			<InvoiceTo ID="{497b677c-e0a8-4eca-9000-e7ca50f47cae}" code="20002720">
+				<Name>SMART. Klantcontact</Name>
+			</InvoiceTo>
+			<Warehouse code="1">
+				<Description>Magazijn</Description>
+			</Warehouse>
+			<ShippingMethod code="DDP">
+				<Description>Delivered Duty Paid</Description>
+			</ShippingMethod>
+			<SalesOrderLine line="1">
+				<Item code="GD101508">
+				</Item>
+				<Quantity>20</Quantity>
+				<DeliveryDate>2025-11-03</DeliveryDate>
+			</SalesOrderLine>
+		</SalesOrder>
+	</SalesOrders>
+	<Messages />
+</eExact>

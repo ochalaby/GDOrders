@@ -1,0 +1,11 @@
+.row-highlight {
+    background-color: #fff7b3 !important; /* zacht geel */
+}
+
+vaadin-upload::part(file-list) {
+    display: none;
+}
+
+/* vaadin-upload::part(drop-label) { */
+/*     display: none; */
+/* } */

@@ -1,0 +1,345 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="Name" type="xs:string"/>
+    <xs:element name="LastName" type="xs:string"/>
+    <xs:element name="MiddleName" type="xs:string"/>
+    <xs:element name="FirstName" type="xs:string"/>
+    <xs:element name="Initials" type="xs:string"/>
+    <xs:element name="FullName" type="xs:string"/>
+    <xs:element name="Email" type="xs:string"/>
+    <xs:element name="AddressLine1" type="xs:string"/>
+    <xs:element name="AddressLine2" type="xs:string"/>
+    <xs:element name="AddressLine3" type="xs:string"/>
+    <xs:element name="PostalCode" type="xs:string"/>
+    <xs:element name="City" type="xs:string"/>
+    <xs:element name="Country">
+        <xs:complexType>
+            <xs:simpleContent>
+                <xs:extension base="xs:string">
+                    <xs:attribute type="xs:string" name="code" use="optional"/>
+                </xs:extension>
+            </xs:simpleContent>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="Contact">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="LastName"/>
+                <xs:element ref="MiddleName"/>
+                <xs:element ref="FirstName"/>
+                <xs:element ref="Initials"/>
+                <xs:element ref="FullName"/>
+                <xs:element ref="Email"/>
+            </xs:sequence>
+            <xs:attribute type="xs:string" name="ID" use="optional"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="Description" type="xs:string"/>
+    <xs:element name="Value" type="xs:string"/>
+    <xs:element name="Currency">
+        <xs:complexType>
+            <xs:simpleContent>
+                <xs:extension base="xs:string">
+                    <xs:attribute type="xs:string" name="code" use="optional"/>
+                </xs:extension>
+            </xs:simpleContent>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="Rate" type="xs:string"/>
+    <xs:element name="PaymentDiscountAmount">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="Value"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="AmountInclVAT" type="xs:string"/>
+    <xs:element name="AmountExclVAT" type="xs:string"/>
+    <xs:element name="Percentage" type="xs:string"/>
+    <xs:element name="VAT">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="Description"/>
+            </xs:sequence>
+            <xs:attribute type="xs:string" name="code" use="optional"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="VATPercentage" type="xs:string"/>
+    <xs:element name="VATBaseAmount" type="xs:string"/>
+    <xs:element name="VATAmount" type="xs:string"/>
+    <xs:element name="Item">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="Description"/>
+            </xs:sequence>
+            <xs:attribute type="xs:string" name="ID" use="optional"/>
+            <xs:attribute type="xs:string" name="code" use="optional"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="Quantity" type="xs:string"/>
+    <xs:element name="DeliveryDate" type="xs:string"/>
+    <xs:element name="Unit">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="Description"/>
+            </xs:sequence>
+            <xs:attribute type="xs:string" name="code" use="optional"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="UnitPrice">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="Currency"/>
+                <xs:element ref="Value"/>
+                <xs:element ref="VAT"/>
+                <xs:element ref="VATPercentage"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="NetPrice">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="Currency"/>
+                <xs:element ref="Value"/>
+                <xs:element ref="VAT"/>
+                <xs:element ref="VATPercentage"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="CostPriceFC" type="xs:string"/>
+    <xs:element name="Margin" type="xs:string"/>
+    <xs:element name="ForeignAmount">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="Currency"/>
+                <xs:element ref="Value"/>
+                <xs:element ref="Rate"/>
+                <xs:element ref="VATBaseAmount" minOccurs="0"/>
+                <xs:element ref="VATAmount" minOccurs="0"/>
+                <xs:element ref="PaymentDiscountAmount" minOccurs="0"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="DiscountPercentage" type="xs:string"/>
+    <xs:element name="UseDropShipment" type="xs:string"/>
+    <xs:element name="OrderDate" type="xs:string"/>
+    <xs:element name="YourRef" type="xs:string"/>
+    <xs:element name="OrderedBy">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="Name"/>
+            </xs:sequence>
+            <xs:attribute type="xs:string" name="ID" use="optional"/>
+            <xs:attribute type="xs:string" name="code" use="optional"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="OrderAccountContact">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="LastName"/>
+                <xs:element ref="MiddleName"/>
+                <xs:element ref="FirstName"/>
+                <xs:element ref="Initials"/>
+                <xs:element ref="FullName"/>
+                <xs:element ref="Email"/>
+            </xs:sequence>
+            <xs:attribute type="xs:string" name="ID" use="optional"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="DeliverTo">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="Name"/>
+            </xs:sequence>
+            <xs:attribute type="xs:string" name="ID" use="optional"/>
+            <xs:attribute type="xs:string" name="code" use="optional"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="DeliveryAddress">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="AddressLine1"/>
+                <xs:element ref="AddressLine2"/>
+                <xs:element ref="AddressLine3"/>
+                <xs:element ref="PostalCode"/>
+                <xs:element ref="City"/>
+                <xs:element ref="State" minOccurs="0"/>
+                <xs:element ref="Country"/>
+                <xs:element ref="Contact" minOccurs="0"/>
+            </xs:sequence>
+            <xs:attribute type="xs:string" name="ID" use="optional"/>
+            <xs:attribute type="xs:string" name="AddressLine1" use="optional"/>
+            <xs:attribute type="xs:string" name="AddressLine2" use="optional"/>
+            <xs:attribute type="xs:string" name="AddressLine3" use="optional"/>
+            <xs:attribute type="xs:string" name="PostalCode" use="optional"/>
+            <xs:attribute type="xs:string" name="City" use="optional"/>
+            <xs:attribute type="xs:string" name="StateCode" use="optional"/>
+            <xs:attribute type="xs:string" name="CountryCode" use="optional"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="DeliveryAccountContact">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="LastName"/>
+                <xs:element ref="MiddleName"/>
+                <xs:element ref="FirstName"/>
+                <xs:element ref="Initials"/>
+                <xs:element ref="FullName"/>
+                <xs:element ref="Email"/>
+            </xs:sequence>
+            <xs:attribute type="xs:string" name="ID" use="optional"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="InvoiceTo">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="Name"/>
+            </xs:sequence>
+            <xs:attribute type="xs:string" name="ID" use="optional"/>
+            <xs:attribute type="xs:string" name="code" use="optional"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="InvoiceAccountContact">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="LastName"/>
+                <xs:element ref="MiddleName"/>
+                <xs:element ref="FirstName"/>
+                <xs:element ref="Initials"/>
+                <xs:element ref="FullName"/>
+                <xs:element ref="Email"/>
+            </xs:sequence>
+            <xs:attribute type="xs:string" name="ID" use="optional"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="Warehouse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="Description"/>
+            </xs:sequence>
+            <xs:attribute type="xs:string" name="code" use="optional"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="PaymentCondition">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="Description"/>
+            </xs:sequence>
+            <xs:attribute type="xs:string" name="code" use="optional"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="ShippingMethod">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="Description"/>
+            </xs:sequence>
+            <xs:attribute type="xs:string" name="code" use="optional"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="SalesPerson">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="FullName"/>
+            </xs:sequence>
+            <xs:attribute type="xs:string" name="id" use="optional"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="EntryDiscount">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="AmountInclVAT"/>
+                <xs:element ref="AmountExclVAT"/>
+                <xs:element ref="Percentage"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="SalesOrderLine">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="Description"/>
+                <xs:element ref="Item"/>
+                <xs:element ref="Quantity"/>
+                <xs:element ref="DeliveryDate"/>
+                <xs:element ref="Unit"/>
+                <xs:element ref="UnitPrice"/>
+                <xs:element ref="NetPrice"/>
+                <xs:element ref="CostPriceFC"/>
+                <xs:element ref="Margin"/>
+                <xs:element ref="ForeignAmount"/>
+                <xs:element ref="DiscountPercentage"/>
+                <xs:element ref="UseDropShipment"/>
+            </xs:sequence>
+            <xs:attribute type="xs:string" name="line" use="optional"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="State">
+        <xs:complexType>
+            <xs:simpleContent>
+                <xs:extension base="xs:string">
+                    <xs:attribute type="xs:string" name="code" use="optional"/>
+                </xs:extension>
+            </xs:simpleContent>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="SalesOrder">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="OrderDate"/>
+                <xs:element ref="DeliveryDate"/>
+                <xs:element ref="YourRef"/>
+                <xs:element ref="OrderedBy"/>
+                <xs:element ref="OrderAccountContact"/>
+                <xs:element ref="DeliverTo"/>
+                <xs:element ref="DeliveryAddress"/>
+                <xs:element ref="DeliveryAccountContact"/>
+                <xs:element ref="InvoiceTo"/>
+                <xs:element ref="InvoiceAccountContact"/>
+                <xs:element ref="Warehouse"/>
+                <xs:element ref="PaymentCondition"/>
+                <xs:element ref="ForeignAmount"/>
+                <xs:element ref="ShippingMethod"/>
+                <xs:element ref="SalesPerson"/>
+                <xs:element ref="EntryDiscount"/>
+                <xs:element ref="SalesOrderLine" maxOccurs="unbounded" minOccurs="0"/>
+            </xs:sequence>
+            <xs:attribute type="xs:string" name="salesordernumber" use="optional"/>
+            <xs:attribute type="xs:string" name="status" use="optional"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="Topic">
+        <xs:complexType>
+            <xs:simpleContent>
+                <xs:extension base="xs:string">
+                    <xs:attribute type="xs:string" name="code"/>
+                    <xs:attribute type="xs:string" name="ts_d"/>
+                    <xs:attribute type="xs:string" name="count"/>
+                    <xs:attribute type="xs:string" name="pagesize"/>
+                </xs:extension>
+            </xs:simpleContent>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="SalesOrders">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="SalesOrder" maxOccurs="unbounded" minOccurs="0"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="Topics">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="Topic"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="Messages" type="xs:string"/>
+    <xs:element name="eExact">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="SalesOrders"/>
+                <xs:element ref="Topics"/>
+                <xs:element ref="Messages"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

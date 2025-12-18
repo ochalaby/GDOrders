@@ -1,0 +1,48 @@
+<assembly xmlns="http://maven.apache.org/plugins/maven-assembly-plugin/assembly/1.1.3"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://maven.apache.org/plugins/maven-assembly-plugin/assembly/1.1.3
+                              http://maven.apache.org/xsd/assembly-1.1.3.xsd">
+    <id>dist</id>
+    <formats>
+        <format>dir</format> <!-- kan ook zip zijn -->
+    </formats>
+
+    <baseDirectory>/</baseDirectory>
+
+    <fileSets>
+        <!-- Runnable JAR -->
+        <fileSet>
+            <directory>${project.build.directory}</directory>
+            <includes>
+                <include>${project.build.finalName}.jar</include>
+            </includes>
+            <outputDirectory>/</outputDirectory>
+        </fileSet>
+
+        <!-- Embedded JRE -->
+        <fileSet>
+            <directory>jre</directory> <!-- je JRE folder in project root -->
+            <outputDirectory>/jre</outputDirectory>
+        </fileSet>
+
+        <!-- Configuration -->
+        <fileSet>
+            <directory>config</directory>
+            <outputDirectory>config</outputDirectory>
+            <includes>
+                <include>**/*</include>
+            </includes>
+        </fileSet>
+
+
+        <!-- Batch script -->
+        <fileSet>
+            <directory>src/main/distribution</directory>
+            <includes>
+                <include>start.bat</include>
+            </includes>
+            <filtered>true</filtered>
+            <outputDirectory>/</outputDirectory>
+        </fileSet>
+    </fileSets>
+</assembly>

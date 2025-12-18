@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<eExact>
+    <SalesOrders>
+        <SalesOrder>
+            <OrderDate>2025-08-19</OrderDate>
+            <DeliveryDate>2025-08-19</DeliveryDate>
+            <YourRef>5500115_E-mail 20250819</YourRef>
+            <OrderedBy ID="{3b27f8c4-9e5a-4bd2-8f0c-62c4d9e7e2ab}" code="20002825">
+                <Name>Armuntis</Name>
+            </OrderedBy>
+            <DeliverTo ID="{3b27f8c4-9e5a-4bd2-8f0c-62c4d9e7e2ab}" code="20002825">
+                <Name>Armuntis</Name>
+            </DeliverTo>
+            <DeliveryAddress ID="{9f3b1d47-6c98-4e31-9f3a-2d63c0ae4b22}"/>
+            <InvoiceTo ID="{3b27f8c4-9e5a-4bd2-8f0c-62c4d9e7e2ab}" code="20002825">
+                <Name>Armuntis</Name>
+            </InvoiceTo>
+            <Warehouse code="2">
+                <Description>Magazijn GD Medical</Description>
+            </Warehouse>
+            <ShippingMethod code="DDP"/>
+            <SalesOrderLine line="1">
+                <Description>Salamol CFC free inhaler 100mcg 200 doses</Description>
+                <Item ID="{b8175ed5-017c-4c76-a02d-105eb2b9b582}" code="19249389">
+                    <Description>Salamol CFC free inhaler 100mcg 200 doses</Description>
+                </Item>
+                <Quantity>3</Quantity>
+                <DeliveryDate>2025-08-19</DeliveryDate>
+            </SalesOrderLine>
+            <SalesOrderLine line="2">
+                <Description>Promethazine 25mg tablet (100)</Description>
+                <Item ID="{74d7032e-c3ba-4b43-a67f-5b1ec20f9a98}" code="15941326">
+                    <Description>Promethazine 25mg tablet (100)</Description>
+                </Item>
+                <Quantity>5</Quantity>
+                <DeliveryDate>2025-08-19</DeliveryDate>
+            </SalesOrderLine>
+            <SalesOrderLine line="3">
+                <Description>Labetalol 200mg film tablet (56)</Description>
+                <Item ID="{d3de7793-9e5a-4d3f-91e1-7873e1e45aad}" code="15684153">
+                    <Description>Labetalol 200mg film tablet (56)</Description>
+                </Item>
+                <Quantity>2</Quantity>
+                <DeliveryDate>2025-08-19</DeliveryDate>
+            </SalesOrderLine>
+            <SalesOrderLine line="4">
+                <Description>Benzbromaron 50mg tablet (100)</Description>
+                <Item ID="{f559c181-eade-4f6c-aff7-03219d341717}" code="15684351">
+                    <Description>Benzbromaron 50mg tablet (100)</Description>
+                </Item>
+                <Quantity>10</Quantity>
+                <DeliveryDate>2025-08-19</DeliveryDate>
+            </SalesOrderLine>
+        </SalesOrder>
+    </SalesOrders>
+    <Topics>
+        <Topic code="SalesOrders" count="1"/>
+    </Topics>
+</eExact>

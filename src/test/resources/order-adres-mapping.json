@@ -1,0 +1,15 @@
+{
+  "addressMapping" : [ {
+    "accountName" : "Armuntis",
+    "accountCode" : "20002825",
+    "deliveryAddress" : "Dommelshei 2, 5508 VG VELDHOVEN, NL",
+    "internalAddressId" : "{e4c6a5f2-1d9c-41cc-b0af-8a7d43c9c2e4}",
+    "accountAddressId" : "{e4c6a5f2-1d9c-41cc-b0af-8a7d43c9c2ba}"
+  }, {
+    "accountName" : "Armuntis",
+    "accountCode" : "20002825",
+    "deliveryAddress" : "Havezatenlaan 1 -11, 7557 VW HENGELO, NL",
+    "internalAddressId" : "{9f3b1d47-6c98-4e31-9f3a-2d63c0ae4b22}",
+    "accountAddressId" : "{69acc00d-79c4-47a6-8090-0d5ec16c38ee}"
+  } ]
+}

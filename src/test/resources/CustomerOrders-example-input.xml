@@ -1,0 +1,1054 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<eExact xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="eExact-XML.xsd">
+	<SalesOrders>
+		<SalesOrder salesordernumber="5500110" status="21">
+			<OrderDate>2025-08-20</OrderDate>
+			<DeliveryDate>2025-08-20</DeliveryDate>
+			<YourRef />
+			<OrderedBy ID="{f761cf4d-e431-4a7f-a23d-1b3104ccff6c}" code="20002719">
+				<Name>Ecco Healthcare Ltd.</Name>
+			</OrderedBy>
+			<OrderAccountContact ID="{452ee0e9-e0fe-4d84-bbe3-2cdeb6fceeec}">
+				<LastName>Livingstone</LastName>
+				<MiddleName />
+				<FirstName>Chris</FirstName>
+				<Initials />
+				<FullName>Chris Livingstone</FullName>
+				<Email>chris@eccohealthcare.co.uk</Email>
+			</OrderAccountContact>
+			<DeliverTo ID="{f761cf4d-e431-4a7f-a23d-1b3104ccff6c}" code="3">
+				<Name>Ecco Healthcare Ltd.</Name>
+			</DeliverTo>
+			<DeliveryAddress ID="{3b0c6649-dad6-4582-aca0-4d5523476202}" AddressLine1="Block 1, Unit 3, Number 2" AddressLine2="" AddressLine3="" PostalCode="KA6 7AA" City="Ayr" StateCode="" CountryCode="GB">
+				<AddressLine1>Block 1, Unit 3, Number 2</AddressLine1>
+				<AddressLine2 />
+				<AddressLine3 />
+				<PostalCode>KA6 7AA</PostalCode>
+				<City>Ayr</City>
+				<Country code="GB" />
+				<Contact ID="{452ee0e9-e0fe-4d84-bbe3-2cdeb6fceeec}">
+					<LastName>Livingstone</LastName>
+					<MiddleName />
+					<FirstName>Chris</FirstName>
+					<Initials />
+					<FullName>Chris Livingstone</FullName>
+					<Email>chris@eccohealthcare.co.uk</Email>
+				</Contact>
+			</DeliveryAddress>
+			<DeliveryAccountContact ID="{452ee0e9-e0fe-4d84-bbe3-2cdeb6fceeec}">
+				<LastName>Livingstone</LastName>
+				<MiddleName />
+				<FirstName>Chris</FirstName>
+				<Initials />
+				<FullName>Chris Livingstone</FullName>
+				<Email>chris@eccohealthcare.co.uk</Email>
+			</DeliveryAccountContact>
+			<InvoiceTo ID="{f761cf4d-e431-4a7f-a23d-1b3104ccff6c}" code="20002719">
+				<Name>Ecco Healthcare Ltd.</Name>
+			</InvoiceTo>
+			<InvoiceAccountContact ID="{452ee0e9-e0fe-4d84-bbe3-2cdeb6fceeec}">
+				<LastName>Livingstone</LastName>
+				<MiddleName />
+				<FirstName>Chris</FirstName>
+				<Initials />
+				<FullName>Chris Livingstone</FullName>
+				<Email>chris@eccohealthcare.co.uk</Email>
+			</InvoiceAccountContact>
+			<Warehouse code="1">
+				<Description>Magazijn GD Medical</Description>
+			</Warehouse>
+			<PaymentCondition code="00">
+				<Description>Vooruitbetaling</Description>
+			</PaymentCondition>
+			<ForeignAmount>
+				<Currency code="EUR" />
+				<Value>300</Value>
+				<Rate>1.16279069767442</Rate>
+				<PaymentDiscountAmount>
+					<Value>0</Value>
+				</PaymentDiscountAmount>
+			</ForeignAmount>
+			<ShippingMethod code="EXW">
+				<Description>Ex works</Description>
+			</ShippingMethod>
+			<SalesPerson id="{7b6d18e4-1e6d-4dce-8b23-617eb83769af}">
+				<FullName>Rutger Mulder</FullName>
+			</SalesPerson>
+			<EntryDiscount>
+				<AmountInclVAT>0</AmountInclVAT>
+				<AmountExclVAT>0</AmountExclVAT>
+				<Percentage>0</Percentage>
+			</EntryDiscount>
+			<SalesOrderLine line="1">
+				<Description>Salamol CFC free inhaler 100mcg 200 doses</Description>
+				<Item ID="{b8175ed5-017c-4c76-a02d-105eb2b9b582}" code="19249389">
+					<Description>Salamol CFC free inhaler 100mcg 200 doses</Description>
+				</Item>
+				<Quantity>20</Quantity>
+				<DeliveryDate>2025-08-20</DeliveryDate>
+				<Unit code="STK">
+					<Description>Verpakking</Description>
+				</Unit>
+				<UnitPrice>
+					<Currency code="EUR" />
+					<Value>18.49</Value>
+					<VAT code="7">
+						<Description>Verkopen binnen de EU</Description>
+					</VAT>
+					<VATPercentage>0</VATPercentage>
+				</UnitPrice>
+				<NetPrice>
+					<Currency code="EUR" />
+					<Value>15</Value>
+					<VAT code="7">
+						<Description>Verkopen binnen de EU</Description>
+					</VAT>
+					<VATPercentage>0</VATPercentage>
+				</NetPrice>
+				<CostPriceFC>0</CostPriceFC>
+				<Margin>100</Margin>
+				<ForeignAmount>
+					<Currency code="EUR" />
+					<Value>300</Value>
+					<Rate>1.16279069767442</Rate>
+					<VATBaseAmount>300</VATBaseAmount>
+					<VATAmount>0</VATAmount>
+				</ForeignAmount>
+				<DiscountPercentage>0.188750676</DiscountPercentage>
+				<UseDropShipment>0</UseDropShipment>
+			</SalesOrderLine>
+		</SalesOrder>
+		<SalesOrder salesordernumber="5500111" status="21">
+			<OrderDate>2025-08-20</OrderDate>
+			<DeliveryDate>2025-08-20</DeliveryDate>
+			<YourRef />
+			<OrderedBy ID="{0c0baf38-54d7-408c-a260-0736a75bebd5}" code="20002719">
+				<Name>Apotheek Heikant</Name>
+			</OrderedBy>
+			<OrderAccountContact ID="{ad3d2f48-e2e1-4f41-9b55-d01665d3b782}">
+				<LastName>de Haas</LastName>
+				<MiddleName />
+				<FirstName>M.M.</FirstName>
+				<Initials />
+				<FullName>M.M. de Haas</FullName>
+				<Email>testapotheek.heikant@ezorg.nl</Email>
+			</OrderAccountContact>
+			<DeliverTo ID="{0c0baf38-54d7-408c-a260-0736a75bebd5}" code="5">
+				<Name>Apotheek Heikant</Name>
+			</DeliverTo>
+			<DeliveryAddress ID="{cb66ec17-bae0-4f25-a15c-09811a42666f}" AddressLine1="Dommelshei 2" AddressLine2="" AddressLine3="" PostalCode="5508 VG" City="VELDHOVEN" StateCode="NB" CountryCode="NL">
+				<AddressLine1>Dommelshei 2</AddressLine1>
+				<AddressLine2 />
+				<AddressLine3 />
+				<PostalCode>5508 VG</PostalCode>
+				<City>VELDHOVEN</City>
+				<State code="NB" />
+				<Country code="NL" />
+				<Contact ID="{ad3d2f48-e2e1-4f41-9b55-d01665d3b782}">
+					<LastName>de Haas</LastName>
+					<MiddleName />
+					<FirstName>M.M.</FirstName>
+					<Initials />
+					<FullName>M.M. de Haas</FullName>
+					<Email>testapotheek.heikant@ezorg.nl</Email>
+				</Contact>
+			</DeliveryAddress>
+			<DeliveryAccountContact ID="{ad3d2f48-e2e1-4f41-9b55-d01665d3b782}">
+				<LastName>de Haas</LastName>
+				<MiddleName />
+				<FirstName>M.M.</FirstName>
+				<Initials />
+				<FullName>M.M. de Haas</FullName>
+				<Email>testapotheek.heikant@ezorg.nl</Email>
+			</DeliveryAccountContact>
+			<InvoiceTo ID="{0c0baf38-54d7-408c-a260-0736a75bebd5}" code="20002719">
+				<Name>Apotheek Heikant</Name>
+			</InvoiceTo>
+			<InvoiceAccountContact ID="{ad3d2f48-e2e1-4f41-9b55-d01665d3b782}">
+				<LastName>de Haas</LastName>
+				<MiddleName />
+				<FirstName>M.M.</FirstName>
+				<Initials />
+				<FullName>M.M. de Haas</FullName>
+				<Email>testapotheek.heikant@ezorg.nl</Email>
+			</InvoiceAccountContact>
+			<Warehouse code="1">
+				<Description>Magazijn GD Medical</Description>
+			</Warehouse>
+			<PaymentCondition code="00">
+				<Description>30 dagen</Description>
+			</PaymentCondition>
+			<ForeignAmount>
+				<Currency code="EUR" />
+				<Value>446.91</Value>
+				<Rate>1</Rate>
+				<PaymentDiscountAmount>
+					<Value>0</Value>
+				</PaymentDiscountAmount>
+			</ForeignAmount>
+			<ShippingMethod code="NLG">
+				<Description>NL GDP zonder kosten</Description>
+			</ShippingMethod>
+			<SalesPerson id="{7b6d18e4-1e6d-4dce-8b23-617eb83769af}">
+				<FullName>Rutger Mulder</FullName>
+			</SalesPerson>
+			<EntryDiscount>
+				<AmountInclVAT>0</AmountInclVAT>
+				<AmountExclVAT>0</AmountExclVAT>
+				<Percentage>0</Percentage>
+			</EntryDiscount>
+			<SalesOrderLine line="1">
+				<Description>Promethazine 25mg tablet (100)</Description>
+				<Item ID="{74d7032e-c3ba-4b43-a67f-5b1ec20f9a98}" code="15941326">
+					<Description>Promethazine 25mg tablet (100)</Description>
+				</Item>
+				<Quantity>10</Quantity>
+				<DeliveryDate>2025-08-20</DeliveryDate>
+				<Unit code="STK">
+					<Description>Verpakking</Description>
+				</Unit>
+				<UnitPrice>
+					<Currency code="EUR" />
+					<Value>19.75</Value>
+					<VAT code="1">
+						<Description>BTW laag</Description>
+					</VAT>
+					<VATPercentage>0.09</VATPercentage>
+				</UnitPrice>
+				<NetPrice>
+					<Currency code="EUR" />
+					<Value>19.75</Value>
+					<VAT code="1">
+						<Description>BTW laag</Description>
+					</VAT>
+					<VATPercentage>0.09</VATPercentage>
+				</NetPrice>
+				<CostPriceFC>7.5</CostPriceFC>
+				<Margin>62.03</Margin>
+				<ForeignAmount>
+					<Currency code="EUR" />
+					<Value>197.5</Value>
+					<Rate>1</Rate>
+					<VATBaseAmount>197.5</VATBaseAmount>
+					<VATAmount>17.78</VATAmount>
+				</ForeignAmount>
+				<DiscountPercentage>0</DiscountPercentage>
+				<UseDropShipment>0</UseDropShipment>
+			</SalesOrderLine>
+			<SalesOrderLine line="2">
+				<Description>Labetalol 200mg film tablet (56)</Description>
+				<Item ID="{d3de7793-9e5a-4d3f-91e1-7873e1e45aad}" code="15684153">
+					<Description>Labetalol 200mg film tablet (56)</Description>
+				</Item>
+				<Quantity>5</Quantity>
+				<DeliveryDate>2025-08-20</DeliveryDate>
+				<Unit code="STK">
+					<Description>Verpakking</Description>
+				</Unit>
+				<UnitPrice>
+					<Currency code="EUR" />
+					<Value>42.5</Value>
+					<VAT code="1">
+						<Description>BTW laag</Description>
+					</VAT>
+					<VATPercentage>0.09</VATPercentage>
+				</UnitPrice>
+				<NetPrice>
+					<Currency code="EUR" />
+					<Value>42.5</Value>
+					<VAT code="1">
+						<Description>BTW laag</Description>
+					</VAT>
+					<VATPercentage>0.09</VATPercentage>
+				</NetPrice>
+				<CostPriceFC>13</CostPriceFC>
+				<Margin>69.41</Margin>
+				<ForeignAmount>
+					<Currency code="EUR" />
+					<Value>212.5</Value>
+					<Rate>1</Rate>
+					<VATBaseAmount>212.5</VATBaseAmount>
+					<VATAmount>19.13</VATAmount>
+				</ForeignAmount>
+				<DiscountPercentage>0</DiscountPercentage>
+				<UseDropShipment>0</UseDropShipment>
+			</SalesOrderLine>
+		</SalesOrder>
+		<SalesOrder salesordernumber="5500112" status="21">
+			<OrderDate>2025-08-20</OrderDate>
+			<DeliveryDate>2025-08-20</DeliveryDate>
+			<YourRef />
+			<OrderedBy ID="{4b9fc1ef-8ee8-44d8-b92a-5936c853b269}" code="20002719">
+				<Name>Apotheek Koop</Name>
+			</OrderedBy>
+			<OrderAccountContact ID="{7e9be5d0-6007-4960-8df2-f5f898adea49}">
+				<LastName>Aarents</LastName>
+				<MiddleName />
+				<FirstName>Fons</FirstName>
+				<Initials>J.A.</Initials>
+				<FullName>Fons Aarents</FullName>
+				<Email>f.aarents@apotheekkoop.nl</Email>
+			</OrderAccountContact>
+			<DeliverTo ID="{4b9fc1ef-8ee8-44d8-b92a-5936c853b269}" code="4">
+				<Name>Apotheek Koop</Name>
+			</DeliverTo>
+			<DeliveryAddress ID="{69acc00d-79c4-47a6-8090-0d5ec16c38ee}" AddressLine1="Havezatenlaan 1 -11" AddressLine2="" AddressLine3="" PostalCode="7557 VW" City="HENGELO" StateCode="OV" CountryCode="NL">
+				<AddressLine1>Havezatenlaan 1 -11</AddressLine1>
+				<AddressLine2 />
+				<AddressLine3 />
+				<PostalCode>7557 VW</PostalCode>
+				<City>HENGELO</City>
+				<State code="OV" />
+				<Country code="NL" />
+				<Contact ID="{7e9be5d0-6007-4960-8df2-f5f898adea49}">
+					<LastName>Aarents</LastName>
+					<MiddleName />
+					<FirstName>Fons</FirstName>
+					<Initials>J.A.</Initials>
+					<FullName>Fons Aarents</FullName>
+					<Email>f.aarents@apotheekkoop.nl</Email>
+				</Contact>
+			</DeliveryAddress>
+			<DeliveryAccountContact ID="{7e9be5d0-6007-4960-8df2-f5f898adea49}">
+				<LastName>Aarents</LastName>
+				<MiddleName />
+				<FirstName>Fons</FirstName>
+				<Initials>J.A.</Initials>
+				<FullName>Fons Aarents</FullName>
+				<Email>f.aarents@apotheekkoop.nl</Email>
+			</DeliveryAccountContact>
+			<InvoiceTo ID="{4b9fc1ef-8ee8-44d8-b92a-5936c853b269}" code="20002719">
+				<Name>Apotheek Koop</Name>
+			</InvoiceTo>
+			<InvoiceAccountContact ID="{7e9be5d0-6007-4960-8df2-f5f898adea49}">
+				<LastName>Aarents</LastName>
+				<MiddleName />
+				<FirstName>Fons</FirstName>
+				<Initials>J.A.</Initials>
+				<FullName>Fons Aarents</FullName>
+				<Email>f.aarents@apotheekkoop.nl</Email>
+			</InvoiceAccountContact>
+			<Warehouse code="1">
+				<Description>Magazijn GD Medical</Description>
+			</Warehouse>
+			<PaymentCondition code="00">
+				<Description>30 dagen</Description>
+			</PaymentCondition>
+			<ForeignAmount>
+				<Currency code="EUR" />
+				<Value>340.08</Value>
+				<Rate>1</Rate>
+				<PaymentDiscountAmount>
+					<Value>0</Value>
+				</PaymentDiscountAmount>
+			</ForeignAmount>
+			<ShippingMethod code="NL">
+				<Description>GDP transport</Description>
+			</ShippingMethod>
+			<SalesPerson id="{7b6d18e4-1e6d-4dce-8b23-617eb83769af}">
+				<FullName>Rutger Mulder</FullName>
+			</SalesPerson>
+			<EntryDiscount>
+				<AmountInclVAT>0</AmountInclVAT>
+				<AmountExclVAT>0</AmountExclVAT>
+				<Percentage>0</Percentage>
+			</EntryDiscount>
+			<SalesOrderLine line="1">
+				<Description>Benzbromaron 50mg tablet (100)</Description>
+				<Item ID="{f559c181-eade-4f6c-aff7-03219d341717}" code="15684351">
+					<Description>Benzbromaron 50mg tablet (100)</Description>
+				</Item>
+				<Quantity>4</Quantity>
+				<DeliveryDate>2025-08-20</DeliveryDate>
+				<Unit code="STK">
+					<Description>Verpakking</Description>
+				</Unit>
+				<UnitPrice>
+					<Currency code="EUR" />
+					<Value>31.25</Value>
+					<VAT code="1">
+						<Description>BTW laag</Description>
+					</VAT>
+					<VATPercentage>0.09</VATPercentage>
+				</UnitPrice>
+				<NetPrice>
+					<Currency code="EUR" />
+					<Value>31.25</Value>
+					<VAT code="1">
+						<Description>BTW laag</Description>
+					</VAT>
+					<VATPercentage>0.09</VATPercentage>
+				</NetPrice>
+				<CostPriceFC>13.5</CostPriceFC>
+				<Margin>56.8</Margin>
+				<ForeignAmount>
+					<Currency code="EUR" />
+					<Value>125</Value>
+					<Rate>1</Rate>
+					<VATBaseAmount>125</VATBaseAmount>
+					<VATAmount>11.25</VATAmount>
+				</ForeignAmount>
+				<DiscountPercentage>0</DiscountPercentage>
+				<UseDropShipment>0</UseDropShipment>
+			</SalesOrderLine>
+			<SalesOrderLine line="2">
+				<Description>Salamol CFC free inhaler 100mcg 200 doses</Description>
+				<Item ID="{b8175ed5-017c-4c76-a02d-105eb2b9b582}" code="19249389">
+					<Description>Salamol CFC free inhaler 100mcg 200 doses</Description>
+				</Item>
+				<Quantity>8</Quantity>
+				<DeliveryDate>2025-08-20</DeliveryDate>
+				<Unit code="STK">
+					<Description>Verpakking</Description>
+				</Unit>
+				<UnitPrice>
+					<Currency code="EUR" />
+					<Value>21.5</Value>
+					<VAT code="1">
+						<Description>BTW laag</Description>
+					</VAT>
+					<VATPercentage>0.09</VATPercentage>
+				</UnitPrice>
+				<NetPrice>
+					<Currency code="EUR" />
+					<Value>21.5</Value>
+					<VAT code="1">
+						<Description>BTW laag</Description>
+					</VAT>
+					<VATPercentage>0.09</VATPercentage>
+				</NetPrice>
+				<CostPriceFC>0</CostPriceFC>
+				<Margin>100</Margin>
+				<ForeignAmount>
+					<Currency code="EUR" />
+					<Value>172</Value>
+					<Rate>1</Rate>
+					<VATBaseAmount>172</VATBaseAmount>
+					<VATAmount>15.48</VATAmount>
+				</ForeignAmount>
+				<DiscountPercentage>0</DiscountPercentage>
+				<UseDropShipment>0</UseDropShipment>
+			</SalesOrderLine>
+		</SalesOrder>
+		<SalesOrder salesordernumber="5500113" status="20">
+			<OrderDate>2025-08-21</OrderDate>
+			<DeliveryDate>2025-08-21</DeliveryDate>
+			<YourRef />
+			<OrderedBy ID="{4b9fc1ef-8ee8-44d8-b92a-5936c853b269}" code="20002719">
+				<Name>Apotheek Koop</Name>
+			</OrderedBy>
+			<OrderAccountContact ID="{7e9be5d0-6007-4960-8df2-f5f898adea49}">
+				<LastName>Aarents</LastName>
+				<MiddleName />
+				<FirstName>Fons</FirstName>
+				<Initials>J.A.</Initials>
+				<FullName>Fons Aarents</FullName>
+				<Email>f.aarents@apotheekkoop.nl</Email>
+			</OrderAccountContact>
+			<DeliverTo ID="{4b9fc1ef-8ee8-44d8-b92a-5936c853b269}" code="4">
+				<Name>Apotheek Koop</Name>
+			</DeliverTo>
+			<DeliveryAddress ID="{c8918473-35cc-4ef1-8dcd-4dda806475ab}" AddressLine1="Havezatenlaan 250" AddressLine2="" AddressLine3="" PostalCode="7557VW" City="Hengelo OV" StateCode="OV" CountryCode="NL">
+				<AddressLine1>Havezatenlaan 250</AddressLine1>
+				<AddressLine2 />
+				<AddressLine3 />
+				<PostalCode>7557VW</PostalCode>
+				<City>Hengelo OV</City>
+				<State code="OV" />
+				<Country code="NL" />
+			</DeliveryAddress>
+			<DeliveryAccountContact ID="{7e9be5d0-6007-4960-8df2-f5f898adea49}">
+				<LastName>Aarents</LastName>
+				<MiddleName />
+				<FirstName>Fons</FirstName>
+				<Initials>J.A.</Initials>
+				<FullName>Fons Aarents</FullName>
+				<Email>f.aarents@apotheekkoop.nl</Email>
+			</DeliveryAccountContact>
+			<InvoiceTo ID="{4b9fc1ef-8ee8-44d8-b92a-5936c853b269}" code="20002719">
+				<Name>Apotheek Koop</Name>
+			</InvoiceTo>
+			<InvoiceAccountContact ID="{7e9be5d0-6007-4960-8df2-f5f898adea49}">
+				<LastName>Aarents</LastName>
+				<MiddleName />
+				<FirstName>Fons</FirstName>
+				<Initials>J.A.</Initials>
+				<FullName>Fons Aarents</FullName>
+				<Email>f.aarents@apotheekkoop.nl</Email>
+			</InvoiceAccountContact>
+			<Warehouse code="1">
+				<Description>Magazijn GD Medical</Description>
+			</Warehouse>
+			<PaymentCondition code="00">
+				<Description>30 dagen</Description>
+			</PaymentCondition>
+			<ForeignAmount>
+				<Currency code="EUR" />
+				<Value>572.94</Value>
+				<Rate>1</Rate>
+				<PaymentDiscountAmount>
+					<Value>0</Value>
+				</PaymentDiscountAmount>
+			</ForeignAmount>
+			<ShippingMethod code="NL">
+				<Description>GDP transport</Description>
+			</ShippingMethod>
+			<SalesPerson id="{7b6d18e4-1e6d-4dce-8b23-617eb83769af}">
+				<FullName>Rutger Mulder</FullName>
+			</SalesPerson>
+			<EntryDiscount>
+				<AmountInclVAT>-29.29</AmountInclVAT>
+				<AmountExclVAT>-26.87</AmountExclVAT>
+				<Percentage>5</Percentage>
+			</EntryDiscount>
+			<SalesOrderLine line="1">
+				<Description>Salamol CFC free inhaler 100mcg 200 doses</Description>
+				<Item ID="{b8175ed5-017c-4c76-a02d-105eb2b9b582}" code="19249389">
+					<Description>Salamol CFC free inhaler 100mcg 200 doses</Description>
+				</Item>
+				<Quantity>25</Quantity>
+				<DeliveryDate>2025-08-21</DeliveryDate>
+				<Unit code="STK">
+					<Description>Verpakking</Description>
+				</Unit>
+				<UnitPrice>
+					<Currency code="EUR" />
+					<Value>21.5</Value>
+					<VAT code="1">
+						<Description>BTW laag</Description>
+					</VAT>
+					<VATPercentage>0.09</VATPercentage>
+				</UnitPrice>
+				<NetPrice>
+					<Currency code="EUR" />
+					<Value>21.5</Value>
+					<VAT code="1">
+						<Description>BTW laag</Description>
+					</VAT>
+					<VATPercentage>0.09</VATPercentage>
+				</NetPrice>
+				<CostPriceFC>0</CostPriceFC>
+				<Margin>100</Margin>
+				<ForeignAmount>
+					<Currency code="EUR" />
+					<Value>537.5</Value>
+					<Rate>1</Rate>
+					<VATBaseAmount>510.63</VATBaseAmount>
+					<VATAmount>48.38</VATAmount>
+				</ForeignAmount>
+				<DiscountPercentage>0</DiscountPercentage>
+				<UseDropShipment>0</UseDropShipment>
+			</SalesOrderLine>
+		</SalesOrder>
+		<SalesOrder salesordernumber="5500114" status="20">
+			<OrderDate>2025-08-19</OrderDate>
+			<DeliveryDate>2025-08-19</DeliveryDate>
+			<YourRef />
+			<OrderedBy ID="{0c0baf38-54d7-408c-a260-0736a75bebd5}" code="20002719">
+				<Name>Apotheek Heikant</Name>
+			</OrderedBy>
+			<OrderAccountContact ID="{ad3d2f48-e2e1-4f41-9b55-d01665d3b782}">
+				<LastName>de Haas</LastName>
+				<MiddleName />
+				<FirstName>M.M.</FirstName>
+				<Initials />
+				<FullName>M.M. de Haas</FullName>
+				<Email>testapotheek.heikant@ezorg.nl</Email>
+			</OrderAccountContact>
+			<DeliverTo ID="{0c0baf38-54d7-408c-a260-0736a75bebd5}" code="5">
+				<Name>Apotheek Heikant</Name>
+			</DeliverTo>
+			<DeliveryAddress ID="{cb66ec17-bae0-4f25-a15c-09811a42666f}" AddressLine1="Dommelshei 2" AddressLine2="" AddressLine3="" PostalCode="5508 VG" City="VELDHOVEN" StateCode="NB" CountryCode="NL">
+				<AddressLine1>Dommelshei 2</AddressLine1>
+				<AddressLine2 />
+				<AddressLine3 />
+				<PostalCode>5508 VG</PostalCode>
+				<City>VELDHOVEN</City>
+				<State code="NB" />
+				<Country code="NL" />
+				<Contact ID="{ad3d2f48-e2e1-4f41-9b55-d01665d3b782}">
+					<LastName>de Haas</LastName>
+					<MiddleName />
+					<FirstName>M.M.</FirstName>
+					<Initials />
+					<FullName>M.M. de Haas</FullName>
+					<Email>testapotheek.heikant@ezorg.nl</Email>
+				</Contact>
+			</DeliveryAddress>
+			<DeliveryAccountContact ID="{ad3d2f48-e2e1-4f41-9b55-d01665d3b782}">
+				<LastName>de Haas</LastName>
+				<MiddleName />
+				<FirstName>M.M.</FirstName>
+				<Initials />
+				<FullName>M.M. de Haas</FullName>
+				<Email>testapotheek.heikant@ezorg.nl</Email>
+			</DeliveryAccountContact>
+			<InvoiceTo ID="{0c0baf38-54d7-408c-a260-0736a75bebd5}" code="20002719">
+				<Name>Apotheek Heikant</Name>
+			</InvoiceTo>
+			<InvoiceAccountContact ID="{ad3d2f48-e2e1-4f41-9b55-d01665d3b782}">
+				<LastName>de Haas</LastName>
+				<MiddleName />
+				<FirstName>M.M.</FirstName>
+				<Initials />
+				<FullName>M.M. de Haas</FullName>
+				<Email>testapotheek.heikant@ezorg.nl</Email>
+			</InvoiceAccountContact>
+			<Warehouse code="1">
+				<Description>Magazijn GD Medical</Description>
+			</Warehouse>
+			<PaymentCondition code="00">
+				<Description>30 dagen</Description>
+			</PaymentCondition>
+			<ForeignAmount>
+				<Currency code="EUR" />
+				<Value>771.18</Value>
+				<Rate>1</Rate>
+				<PaymentDiscountAmount>
+					<Value>0</Value>
+				</PaymentDiscountAmount>
+			</ForeignAmount>
+			<ShippingMethod code="NLG">
+				<Description>NL GDP zonder kosten</Description>
+			</ShippingMethod>
+			<SalesPerson id="{7b6d18e4-1e6d-4dce-8b23-617eb83769af}">
+				<FullName>Rutger Mulder</FullName>
+			</SalesPerson>
+			<EntryDiscount>
+				<AmountInclVAT>0</AmountInclVAT>
+				<AmountExclVAT>0</AmountExclVAT>
+				<Percentage>0</Percentage>
+			</EntryDiscount>
+			<SalesOrderLine line="1">
+				<Description>Benzbromaron 50mg tablet (100)</Description>
+				<Item ID="{f559c181-eade-4f6c-aff7-03219d341717}" code="15684351">
+					<Description>Benzbromaron 50mg tablet (100)</Description>
+				</Item>
+				<Quantity>10</Quantity>
+				<DeliveryDate>2025-08-19</DeliveryDate>
+				<Unit code="STK">
+					<Description>Verpakking</Description>
+				</Unit>
+				<UnitPrice>
+					<Currency code="EUR" />
+					<Value>31.25</Value>
+					<VAT code="1">
+						<Description>BTW laag</Description>
+					</VAT>
+					<VATPercentage>0.09</VATPercentage>
+				</UnitPrice>
+				<NetPrice>
+					<Currency code="EUR" />
+					<Value>31.25</Value>
+					<VAT code="1">
+						<Description>BTW laag</Description>
+					</VAT>
+					<VATPercentage>0.09</VATPercentage>
+				</NetPrice>
+				<CostPriceFC>13.5</CostPriceFC>
+				<Margin>56.8</Margin>
+				<ForeignAmount>
+					<Currency code="EUR" />
+					<Value>312.5</Value>
+					<Rate>1</Rate>
+					<VATBaseAmount>312.5</VATBaseAmount>
+					<VATAmount>28.13</VATAmount>
+				</ForeignAmount>
+				<DiscountPercentage>0</DiscountPercentage>
+				<UseDropShipment>0</UseDropShipment>
+			</SalesOrderLine>
+			<SalesOrderLine line="2">
+				<Description>Promethazine 25mg tablet (100)</Description>
+				<Item ID="{74d7032e-c3ba-4b43-a67f-5b1ec20f9a98}" code="15941326">
+					<Description>Promethazine 25mg tablet (100)</Description>
+				</Item>
+				<Quantity>20</Quantity>
+				<DeliveryDate>2025-08-19</DeliveryDate>
+				<Unit code="STK">
+					<Description>Verpakking</Description>
+				</Unit>
+				<UnitPrice>
+					<Currency code="EUR" />
+					<Value>19.75</Value>
+					<VAT code="1">
+						<Description>BTW laag</Description>
+					</VAT>
+					<VATPercentage>0.09</VATPercentage>
+				</UnitPrice>
+				<NetPrice>
+					<Currency code="EUR" />
+					<Value>19.75</Value>
+					<VAT code="1">
+						<Description>BTW laag</Description>
+					</VAT>
+					<VATPercentage>0.09</VATPercentage>
+				</NetPrice>
+				<CostPriceFC>7.5</CostPriceFC>
+				<Margin>62.03</Margin>
+				<ForeignAmount>
+					<Currency code="EUR" />
+					<Value>395</Value>
+					<Rate>1</Rate>
+					<VATBaseAmount>395</VATBaseAmount>
+					<VATAmount>35.55</VATAmount>
+				</ForeignAmount>
+				<DiscountPercentage>0</DiscountPercentage>
+				<UseDropShipment>0</UseDropShipment>
+			</SalesOrderLine>
+		</SalesOrder>
+		<SalesOrder salesordernumber="5500115" status="20">
+			<OrderDate>2025-08-19</OrderDate>
+			<DeliveryDate>2025-08-19</DeliveryDate>
+			<YourRef>E-mail 20250819</YourRef>
+			<OrderedBy ID="{4b9fc1ef-8ee8-44d8-b92a-5936c853b269}" code="20002719">
+				<Name>Apotheek Koop</Name>
+			</OrderedBy>
+			<OrderAccountContact ID="{7e9be5d0-6007-4960-8df2-f5f898adea49}">
+				<LastName>Aarents</LastName>
+				<MiddleName />
+				<FirstName>Fons</FirstName>
+				<Initials>J.A.</Initials>
+				<FullName>Fons Aarents</FullName>
+				<Email>f.aarents@apotheekkoop.nl</Email>
+			</OrderAccountContact>
+			<DeliverTo ID="{4b9fc1ef-8ee8-44d8-b92a-5936c853b269}" code="4">
+				<Name>Apotheek Koop</Name>
+			</DeliverTo>
+			<DeliveryAddress ID="{69acc00d-79c4-47a6-8090-0d5ec16c38ee}" AddressLine1="Havezatenlaan 1 -11" AddressLine2="" AddressLine3="" PostalCode="7557 VW" City="HENGELO" StateCode="OV" CountryCode="NL">
+				<AddressLine1>Havezatenlaan 1 -11</AddressLine1>
+				<AddressLine2 />
+				<AddressLine3 />
+				<PostalCode>7557 VW</PostalCode>
+				<City>HENGELO</City>
+				<State code="OV" />
+				<Country code="NL" />
+				<Contact ID="{7e9be5d0-6007-4960-8df2-f5f898adea49}">
+					<LastName>Aarents</LastName>
+					<MiddleName />
+					<FirstName>Fons</FirstName>
+					<Initials>J.A.</Initials>
+					<FullName>Fons Aarents</FullName>
+					<Email>f.aarents@apotheekkoop.nl</Email>
+				</Contact>
+			</DeliveryAddress>
+			<DeliveryAccountContact ID="{7e9be5d0-6007-4960-8df2-f5f898adea49}">
+				<LastName>Aarents</LastName>
+				<MiddleName />
+				<FirstName>Fons</FirstName>
+				<Initials>J.A.</Initials>
+				<FullName>Fons Aarents</FullName>
+				<Email>f.aarents@apotheekkoop.nl</Email>
+			</DeliveryAccountContact>
+			<InvoiceTo ID="{4b9fc1ef-8ee8-44d8-b92a-5936c853b269}" code="20002719">
+				<Name>Apotheek Koop</Name>
+			</InvoiceTo>
+			<InvoiceAccountContact ID="{7e9be5d0-6007-4960-8df2-f5f898adea49}">
+				<LastName>Aarents</LastName>
+				<MiddleName />
+				<FirstName>Fons</FirstName>
+				<Initials>J.A.</Initials>
+				<FullName>Fons Aarents</FullName>
+				<Email>f.aarents@apotheekkoop.nl</Email>
+			</InvoiceAccountContact>
+			<Warehouse code="1">
+				<Description>Magazijn GD Medical</Description>
+			</Warehouse>
+			<PaymentCondition code="00">
+				<Description>30 dagen</Description>
+			</PaymentCondition>
+			<ForeignAmount>
+				<Currency code="EUR" />
+				<Value>627.58</Value>
+				<Rate>1</Rate>
+				<PaymentDiscountAmount>
+					<Value>0</Value>
+				</PaymentDiscountAmount>
+			</ForeignAmount>
+			<ShippingMethod code="NL">
+				<Description>GDP transport</Description>
+			</ShippingMethod>
+			<SalesPerson id="{7b6d18e4-1e6d-4dce-8b23-617eb83769af}">
+				<FullName>Rutger Mulder</FullName>
+			</SalesPerson>
+			<EntryDiscount>
+				<AmountInclVAT>0</AmountInclVAT>
+				<AmountExclVAT>0</AmountExclVAT>
+				<Percentage>0</Percentage>
+			</EntryDiscount>
+			<SalesOrderLine line="1">
+				<Description>Salamol CFC free inhaler 100mcg 200 doses</Description>
+				<Item ID="{b8175ed5-017c-4c76-a02d-105eb2b9b582}" code="19249389">
+					<Description>Salamol CFC free inhaler 100mcg 200 doses</Description>
+				</Item>
+				<Quantity>3</Quantity>
+				<DeliveryDate>2025-08-19</DeliveryDate>
+				<Unit code="STK">
+					<Description>Verpakking</Description>
+				</Unit>
+				<UnitPrice>
+					<Currency code="EUR" />
+					<Value>21.5</Value>
+					<VAT code="1">
+						<Description>BTW laag</Description>
+					</VAT>
+					<VATPercentage>0.09</VATPercentage>
+				</UnitPrice>
+				<NetPrice>
+					<Currency code="EUR" />
+					<Value>21.5</Value>
+					<VAT code="1">
+						<Description>BTW laag</Description>
+					</VAT>
+					<VATPercentage>0.09</VATPercentage>
+				</NetPrice>
+				<CostPriceFC>0</CostPriceFC>
+				<Margin>100</Margin>
+				<ForeignAmount>
+					<Currency code="EUR" />
+					<Value>64.5</Value>
+					<Rate>1</Rate>
+					<VATBaseAmount>64.5</VATBaseAmount>
+					<VATAmount>5.81</VATAmount>
+				</ForeignAmount>
+				<DiscountPercentage>0</DiscountPercentage>
+				<UseDropShipment>0</UseDropShipment>
+			</SalesOrderLine>
+			<SalesOrderLine line="2">
+				<Description>Promethazine 25mg tablet (100)</Description>
+				<Item ID="{74d7032e-c3ba-4b43-a67f-5b1ec20f9a98}" code="15941326">
+					<Description>Promethazine 25mg tablet (100)</Description>
+				</Item>
+				<Quantity>5</Quantity>
+				<DeliveryDate>2025-08-19</DeliveryDate>
+				<Unit code="STK">
+					<Description>Verpakking</Description>
+				</Unit>
+				<UnitPrice>
+					<Currency code="EUR" />
+					<Value>19.75</Value>
+					<VAT code="1">
+						<Description>BTW laag</Description>
+					</VAT>
+					<VATPercentage>0.09</VATPercentage>
+				</UnitPrice>
+				<NetPrice>
+					<Currency code="EUR" />
+					<Value>19.75</Value>
+					<VAT code="1">
+						<Description>BTW laag</Description>
+					</VAT>
+					<VATPercentage>0.09</VATPercentage>
+				</NetPrice>
+				<CostPriceFC>7.5</CostPriceFC>
+				<Margin>62.03</Margin>
+				<ForeignAmount>
+					<Currency code="EUR" />
+					<Value>98.75</Value>
+					<Rate>1</Rate>
+					<VATBaseAmount>98.75</VATBaseAmount>
+					<VATAmount>8.89</VATAmount>
+				</ForeignAmount>
+				<DiscountPercentage>0</DiscountPercentage>
+				<UseDropShipment>0</UseDropShipment>
+			</SalesOrderLine>
+			<SalesOrderLine line="3">
+				<Description>Labetalol 200mg film tablet (56)</Description>
+				<Item ID="{d3de7793-9e5a-4d3f-91e1-7873e1e45aad}" code="15684153">
+					<Description>Labetalol 200mg film tablet (56)</Description>
+				</Item>
+				<Quantity>2</Quantity>
+				<DeliveryDate>2025-08-19</DeliveryDate>
+				<Unit code="STK">
+					<Description>Verpakking</Description>
+				</Unit>
+				<UnitPrice>
+					<Currency code="EUR" />
+					<Value>42.5</Value>
+					<VAT code="1">
+						<Description>BTW laag</Description>
+					</VAT>
+					<VATPercentage>0.09</VATPercentage>
+				</UnitPrice>
+				<NetPrice>
+					<Currency code="EUR" />
+					<Value>42.5</Value>
+					<VAT code="1">
+						<Description>BTW laag</Description>
+					</VAT>
+					<VATPercentage>0.09</VATPercentage>
+				</NetPrice>
+				<CostPriceFC>13</CostPriceFC>
+				<Margin>69.41</Margin>
+				<ForeignAmount>
+					<Currency code="EUR" />
+					<Value>85</Value>
+					<Rate>1</Rate>
+					<VATBaseAmount>85</VATBaseAmount>
+					<VATAmount>7.65</VATAmount>
+				</ForeignAmount>
+				<DiscountPercentage>0</DiscountPercentage>
+				<UseDropShipment>0</UseDropShipment>
+			</SalesOrderLine>
+			<SalesOrderLine line="4">
+				<Description>Benzbromaron 50mg tablet (100)</Description>
+				<Item ID="{f559c181-eade-4f6c-aff7-03219d341717}" code="15684351">
+					<Description>Benzbromaron 50mg tablet (100)</Description>
+				</Item>
+				<Quantity>10</Quantity>
+				<DeliveryDate>2025-08-19</DeliveryDate>
+				<Unit code="STK">
+					<Description>Verpakking</Description>
+				</Unit>
+				<UnitPrice>
+					<Currency code="EUR" />
+					<Value>31.25</Value>
+					<VAT code="1">
+						<Description>BTW laag</Description>
+					</VAT>
+					<VATPercentage>0.09</VATPercentage>
+				</UnitPrice>
+				<NetPrice>
+					<Currency code="EUR" />
+					<Value>31.25</Value>
+					<VAT code="1">
+						<Description>BTW laag</Description>
+					</VAT>
+					<VATPercentage>0.09</VATPercentage>
+				</NetPrice>
+				<CostPriceFC>13.5</CostPriceFC>
+				<Margin>56.8</Margin>
+				<ForeignAmount>
+					<Currency code="EUR" />
+					<Value>312.5</Value>
+					<Rate>1</Rate>
+					<VATBaseAmount>312.5</VATBaseAmount>
+					<VATAmount>28.13</VATAmount>
+				</ForeignAmount>
+				<DiscountPercentage>0</DiscountPercentage>
+				<UseDropShipment>0</UseDropShipment>
+			</SalesOrderLine>
+		</SalesOrder>
+		<SalesOrder salesordernumber="1" status="20">
+			<OrderDate>2025-08-15</OrderDate>
+			<DeliveryDate>2025-08-15</DeliveryDate>
+			<YourRef>E-mail 20250815</YourRef>
+			<OrderedBy ID="{4b9fc1ef-8ee8-44d8-b92a-5936c853b269}" code="20002719">
+				<Name>Apotheek Koop</Name>
+			</OrderedBy>
+			<OrderAccountContact ID="{7e9be5d0-6007-4960-8df2-f5f898adea49}">
+				<LastName>Aarents</LastName>
+				<MiddleName />
+				<FirstName>Fons</FirstName>
+				<Initials>J.A.</Initials>
+				<FullName>Fons Aarents</FullName>
+				<Email>f.aarents@apotheekkoop.nl</Email>
+			</OrderAccountContact>
+			<DeliverTo ID="{4b9fc1ef-8ee8-44d8-b92a-5936c853b269}" code="4">
+				<Name>Apotheek Koop</Name>
+			</DeliverTo>
+			<DeliveryAddress ID="{69acc00d-79c4-47a6-8090-0d5ec16c38ee}" AddressLine1="Havezatenlaan 1 -11" AddressLine2="" AddressLine3="" PostalCode="7557 VW" City="HENGELO" StateCode="OV" CountryCode="NL">
+				<AddressLine1>Havezatenlaan 1 -11</AddressLine1>
+				<AddressLine2 />
+				<AddressLine3 />
+				<PostalCode>7557 VW</PostalCode>
+				<City>HENGELO</City>
+				<State code="OV" />
+				<Country code="NL" />
+				<Contact ID="{7e9be5d0-6007-4960-8df2-f5f898adea49}">
+					<LastName>Aarents</LastName>
+					<MiddleName />
+					<FirstName>Fons</FirstName>
+					<Initials>J.A.</Initials>
+					<FullName>Fons Aarents</FullName>
+					<Email>f.aarents@apotheekkoop.nl</Email>
+				</Contact>
+			</DeliveryAddress>
+			<DeliveryAccountContact ID="{7e9be5d0-6007-4960-8df2-f5f898adea49}">
+				<LastName>Aarents</LastName>
+				<MiddleName />
+				<FirstName>Fons</FirstName>
+				<Initials>J.A.</Initials>
+				<FullName>Fons Aarents</FullName>
+				<Email>f.aarents@apotheekkoop.nl</Email>
+			</DeliveryAccountContact>
+			<InvoiceTo ID="{4b9fc1ef-8ee8-44d8-b92a-5936c853b269}" code="20002719">
+				<Name>Apotheek Koop</Name>
+			</InvoiceTo>
+			<InvoiceAccountContact ID="{7e9be5d0-6007-4960-8df2-f5f898adea49}">
+				<LastName>Aarents</LastName>
+				<MiddleName />
+				<FirstName>Fons</FirstName>
+				<Initials>J.A.</Initials>
+				<FullName>Fons Aarents</FullName>
+				<Email>f.aarents@apotheekkoop.nl</Email>
+			</InvoiceAccountContact>
+			<Warehouse code="1">
+				<Description>Magazijn GD Medical</Description>
+			</Warehouse>
+			<PaymentCondition code="00">
+				<Description>30 dagen</Description>
+			</PaymentCondition>
+			<ForeignAmount>
+				<Currency code="EUR" />
+				<Value>1188.1</Value>
+				<Rate>1</Rate>
+				<PaymentDiscountAmount>
+					<Value>0</Value>
+				</PaymentDiscountAmount>
+			</ForeignAmount>
+			<ShippingMethod code="NL">
+				<Description>GDP transport</Description>
+			</ShippingMethod>
+			<SalesPerson id="{7b6d18e4-1e6d-4dce-8b23-617eb83769af}">
+				<FullName>Rutger Mulder</FullName>
+			</SalesPerson>
+			<EntryDiscount>
+				<AmountInclVAT>0</AmountInclVAT>
+				<AmountExclVAT>0</AmountExclVAT>
+				<Percentage>0</Percentage>
+			</EntryDiscount>
+			<SalesOrderLine line="1">
+				<Description>Salamol CFC free inhaler 100mcg</Description>
+				<Item ID="{b8175ed5-017c-4c76-a02d-105eb2b9b582}" code="19249389">
+					<Description>Salamol CFC free inhaler 100mcg 200 doses</Description>
+				</Item>
+				<Quantity>50</Quantity>
+				<DeliveryDate>2025-08-15</DeliveryDate>
+				<Unit code="STK">
+					<Description>Verpakking</Description>
+				</Unit>
+				<UnitPrice>
+					<Currency code="EUR" />
+					<Value>21.5</Value>
+					<VAT code="1">
+						<Description>BTW laag</Description>
+					</VAT>
+					<VATPercentage>0.09</VATPercentage>
+				</UnitPrice>
+				<NetPrice>
+					<Currency code="EUR" />
+					<Value>21.5</Value>
+					<VAT code="1">
+						<Description>BTW laag</Description>
+					</VAT>
+					<VATPercentage>0.09</VATPercentage>
+				</NetPrice>
+				<CostPriceFC>0</CostPriceFC>
+				<Margin>100</Margin>
+				<ForeignAmount>
+					<Currency code="EUR" />
+					<Value>1075</Value>
+					<Rate>1</Rate>
+					<VATBaseAmount>1075</VATBaseAmount>
+					<VATAmount>96.75</VATAmount>
+				</ForeignAmount>
+				<DiscountPercentage>0</DiscountPercentage>
+				<UseDropShipment>0</UseDropShipment>
+			</SalesOrderLine>
+		</SalesOrder>
+	</SalesOrders>
+	<Topics>
+		<Topic code="SalesOrders" ts_d="0x00000003DE065BB5" count="7" pagesize="100" />
+	</Topics>
+	<Messages />
+</eExact>

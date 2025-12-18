@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<eExact xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="eExact-XML.xsd">
+	<Accounts>
+		<Account code="20002720" searchcode="" status="C" ID="{497b677c-e0a8-4eca-9000-e7ca50f47cae}">
+			<Name>SMART. Klantcontact</Name>
+			<Phone />
+			<PhoneExt />
+			<Fax />
+			<Email />
+			<HomePage />
+			<IsSupplier>0</IsSupplier>
+			<CanDropShip>0</CanDropShip>
+			<IsBlocked>0</IsBlocked>
+			<IsReseller>0</IsReseller>
+			<IsSales>1</IsSales>
+			<IsPurchase>1</IsPurchase>
+			<ShowRemarkForSales>0</ShowRemarkForSales>
+			<Address type="VIS" default="1" ID="{6bc2daa0-1a22-42a8-9c70-f829aca8f865}">
+				<AddressLine1>Heikantstraat 3</AddressLine1>
+				<AddressLine2 />
+				<AddressLine3 />
+				<PostalCode>5408 PZ</PostalCode>
+				<City>VOLKEL</City>
+				<State code="NB" />
+				<Country code="NL" />
+				<Phone />
+				<Fax />
+			</Address>
+			<Address type="DEL" default="0" ID="{0b2b8022-fe64-4bf0-bc2a-eeab06921403}">
+				<AddressLine1>SMART KLANT A</AddressLine1>
+				<AddressLine2>Park Forum 1057</AddressLine2>
+				<AddressLine3 />
+				<PostalCode>5657 HJ</PostalCode>
+				<City>Eindhoven</City>
+				<State code="NB" />
+				<Country code="NL" />
+				<Phone />
+				<Fax />
+			</Address>
+			<Address type="DEL" default="1" ID="{fe8d3887-6295-4e79-9090-b1e435f68513}">
+				<AddressLine1>SMART KLANT B</AddressLine1>
+				<AddressLine2>Heikantstraat 106</AddressLine2>
+				<AddressLine3 />
+				<PostalCode>5408 PZ</PostalCode>
+				<City>Volkel</City>
+				<State code="NB" />
+				<Country code="NL" />
+				<Phone />
+				<Fax />
+			</Address>
+			<VATNumber />
+			<VATLiability />
+			<ChamberOfCommerce />
+			<ChamberOfCommerceEstablishment />
+			<GlnNumber />
+			<SalesCurrency code="EUR" />
+			<PurchaseCurrency code="EUR" />
+			<CreditLine>
+				<Sales>0</Sales>
+				<Purchase>0</Purchase>
+			</CreditLine>
+			<Discount>
+				<SalesPercentage>0</SalesPercentage>
+				<PurchasePercentage>0</PurchasePercentage>
+			</Discount>
+			<ShippingMethod code="DDP">
+				<Description>Delivered Duty Paid</Description>
+			</ShippingMethod>
+			<AccountClassifications />
+			<IsMailing>0</IsMailing>
+			<IsCompetitor>0</IsCompetitor>
+			<StartDate>2025-10-28</StartDate>
+			<IntraStat>
+				<System />
+				<TransactionA />
+				<TransactionB />
+				<TransportMethod />
+				<DeliveryTerm />
+				<Area />
+			</IntraStat>
+			<InvoicingMethod>0</InvoicingMethod>
+			<AutomaticProcessProposedEntry>1</AutomaticProcessProposedEntry>
+			<DeliveryAdvice>0</DeliveryAdvice>
+			<IsAnonymised>0</IsAnonymised>
+			<IncotermSales>
+				<Code />
+				<Description />
+				<Version />
+				<VersionDescription />
+				<Address />
+			</IncotermSales>
+			<IncotermPurchase>
+				<Code />
+				<Description />
+				<Version />
+				<VersionDescription />
+				<Address />
+			</IncotermPurchase>
+			<PeppolIdentifier />
+		</Account>
+	</Accounts>
+	<Topics>
+		<Topic code="Accounts" ts_d="0x0000000002083FA1" count="1" pagesize="1000" />
+	</Topics>
+	<Messages />
+</eExact>

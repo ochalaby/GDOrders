@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           elementFormDefault="qualified"
+           attributeFormDefault="unqualified">
+
+    <!-- ========================================================= -->
+    <!--  Globale BASIS-elementen                                 -->
+    <!-- ========================================================= -->
+
+    <xs:element name="Name" type="xs:string"/>
+    <xs:element name="Phone" type="xs:string"/>
+    <xs:element name="PhoneExt" type="xs:string"/>
+    <xs:element name="Fax" type="xs:string"/>
+    <xs:element name="Email" type="xs:string"/>
+    <xs:element name="HomePage" type="xs:string"/>
+
+    <xs:element name="IsSupplier" type="xs:string"/>
+    <xs:element name="CanDropShip" type="xs:string"/>
+    <xs:element name="IsBlocked" type="xs:string"/>
+    <xs:element name="IsReseller" type="xs:string"/>
+    <xs:element name="IsSales" type="xs:string"/>
+    <xs:element name="IsPurchase" type="xs:string"/>
+    <xs:element name="ShowRemarkForSales" type="xs:string"/>
+
+    <xs:element name="AddressLine1" type="xs:string"/>
+    <xs:element name="AddressLine2" type="xs:string"/>
+    <xs:element name="AddressLine3" type="xs:string"/>
+    <xs:element name="PostalCode" type="xs:string"/>
+    <xs:element name="City" type="xs:string"/>
+
+    <!-- State element -->
+    <xs:element name="State">
+        <xs:complexType>
+            <xs:simpleContent>
+                <xs:extension base="xs:string">
+                    <xs:attribute name="code" type="xs:string"/>
+                </xs:extension>
+            </xs:simpleContent>
+        </xs:complexType>
+    </xs:element>
+
+    <!-- Country element -->
+    <xs:element name="Country">
+        <xs:complexType>
+            <xs:simpleContent>
+                <xs:extension base="xs:string">
+                    <xs:attribute name="code" type="xs:string"/>
+                </xs:extension>
+            </xs:simpleContent>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="VATNumber" type="xs:string"/>
+    <xs:element name="VATLiability" type="xs:string"/>
+    <xs:element name="ChamberOfCommerce" type="xs:string"/>
+    <xs:element name="ChamberOfCommerceEstablishment" type="xs:string"/>
+    <xs:element name="GlnNumber" type="xs:string"/>
+
+    <xs:element name="StartDate" type="xs:string"/>
+
+    <xs:element name="InvoicingMethod" type="xs:string"/>
+    <xs:element name="AutomaticProcessProposedEntry" type="xs:string"/>
+    <xs:element name="DeliveryAdvice" type="xs:string"/>
+    <xs:element name="IsAnonymised" type="xs:string"/>
+    <xs:element name="PeppolIdentifier" type="xs:string"/>
+
+    <xs:element name="IsMailing" type="xs:string"/>
+    <xs:element name="IsCompetitor" type="xs:string"/>
+
+    <!-- Shipping Method -->
+    <xs:element name="ShippingMethod">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="Description"/>
+            </xs:sequence>
+            <xs:attribute name="code" type="xs:string" use="optional"/>
+        </xs:complexType>
+    </xs:element>
+
+    <!-- Simple Description element -->
+    <xs:element name="Description" type="xs:string"/>
+
+    <!-- Currency elements -->
+    <xs:element name="SalesCurrency">
+        <xs:complexType>
+            <xs:simpleContent>
+                <xs:extension base="xs:string">
+                    <xs:attribute name="code" type="xs:string"/>
+                </xs:extension>
+            </xs:simpleContent>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="PurchaseCurrency">
+        <xs:complexType>
+            <xs:simpleContent>
+                <xs:extension base="xs:string">
+                    <xs:attribute name="code" type="xs:string"/>
+                </xs:extension>
+            </xs:simpleContent>
+        </xs:complexType>
+    </xs:element>
+
+    <!-- CreditLine -->
+    <xs:element name="Sales" type="xs:string"/>
+    <xs:element name="Purchase" type="xs:string"/>
+
+    <xs:element name="CreditLine">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="Sales"/>
+                <xs:element ref="Purchase"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <!-- Discount -->
+    <xs:element name="SalesPercentage" type="xs:string"/>
+    <xs:element name="PurchasePercentage" type="xs:string"/>
+
+    <xs:element name="Discount">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="SalesPercentage"/>
+                <xs:element ref="PurchasePercentage"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <!-- IntraStat -->
+    <xs:element name="System" type="xs:string"/>
+    <xs:element name="TransactionA" type="xs:string"/>
+    <xs:element name="TransactionB" type="xs:string"/>
+    <xs:element name="TransportMethod" type="xs:string"/>
+    <xs:element name="DeliveryTerm" type="xs:string"/>
+    <xs:element name="Area" type="xs:string"/>
+
+    <xs:element name="IntraStat">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="System"/>
+                <xs:element ref="TransactionA"/>
+                <xs:element ref="TransactionB"/>
+                <xs:element ref="TransportMethod"/>
+                <xs:element ref="DeliveryTerm"/>
+                <xs:element ref="Area"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <!-- AccountClassifications (empty) -->
+    <xs:element name="AccountClassifications" type="xs:string"/>
+
+    <!-- ========================================================= -->
+    <!--  COMPLEX ELEMENTS                                         -->
+    <!-- ========================================================= -->
+
+    <!-- Address -->
+    <xs:element name="Address">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="AddressLine1"/>
+                <xs:element ref="AddressLine2"/>
+                <xs:element ref="AddressLine3"/>
+                <xs:element ref="PostalCode"/>
+                <xs:element ref="City"/>
+                <xs:element ref="State"/>
+                <xs:element ref="Country"/>
+                <xs:element ref="Phone"/>
+                <xs:element ref="Fax"/>
+            </xs:sequence>
+            <xs:attribute name="type" type="xs:string"/>
+            <xs:attribute name="default" type="xs:string"/>
+            <xs:attribute name="ID" type="xs:string"/>
+        </xs:complexType>
+    </xs:element>
+
+    <!-- Account -->
+    <xs:element name="Account">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="Name"/>
+                <xs:element ref="Phone"/>
+                <xs:element ref="PhoneExt"/>
+                <xs:element ref="Fax"/>
+                <xs:element ref="Email"/>
+                <xs:element ref="HomePage"/>
+                <xs:element ref="IsSupplier"/>
+                <xs:element ref="CanDropShip"/>
+                <xs:element ref="IsBlocked"/>
+                <xs:element ref="IsReseller"/>
+                <xs:element ref="IsSales"/>
+                <xs:element ref="IsPurchase"/>
+                <xs:element ref="ShowRemarkForSales"/>
+                <xs:element ref="Address" maxOccurs="unbounded"/>
+                <xs:element ref="VATNumber"/>
+                <xs:element ref="VATLiability"/>
+                <xs:element ref="ChamberOfCommerce"/>
+                <xs:element ref="ChamberOfCommerceEstablishment"/>
+                <xs:element ref="GlnNumber"/>
+                <xs:element ref="SalesCurrency"/>
+                <xs:element ref="PurchaseCurrency"/>
+                <xs:element ref="CreditLine"/>
+                <xs:element ref="Discount"/>
+                <xs:element ref="ShippingMethod"/>
+                <xs:element ref="AccountClassifications"/>
+                <xs:element ref="IsMailing"/>
+                <xs:element ref="IsCompetitor"/>
+                <xs:element ref="StartDate"/>
+                <xs:element ref="IntraStat"/>
+                <xs:element ref="InvoicingMethod"/>
+                <xs:element ref="AutomaticProcessProposedEntry"/>
+                <xs:element ref="DeliveryAdvice"/>
+                <xs:element ref="IsAnonymised"/>
+                <xs:element ref="PeppolIdentifier"/>
+            </xs:sequence>
+            <xs:attribute name="code" type="xs:string"/>
+            <xs:attribute name="searchcode" type="xs:string"/>
+            <xs:attribute name="status" type="xs:string"/>
+            <xs:attribute name="ID" type="xs:string"/>
+        </xs:complexType>
+    </xs:element>
+
+    <!-- Accounts -->
+    <xs:element name="Accounts">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="Account" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <!-- Topics -->
+    <xs:element name="Topic">
+        <xs:complexType>
+            <xs:simpleContent>
+                <xs:extension base="xs:string">
+                    <xs:attribute name="code" type="xs:string"/>
+                    <xs:attribute name="ts_d" type="xs:string"/>
+                    <xs:attribute name="count" type="xs:string"/>
+                    <xs:attribute name="pagesize" type="xs:string"/>
+                </xs:extension>
+            </xs:simpleContent>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="Topics">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="Topic"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <!-- Messages -->
+    <xs:element name="Messages" type="xs:string"/>
+
+    <!-- Root -->
+    <xs:element name="eExact">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="Accounts"/>
+                <xs:element ref="Topics"/>
+                <xs:element ref="Messages"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+</xs:schema>
