@@ -14,7 +14,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class MappingService {
+public class MappingDataService {
 
     private final SettingsService settingsService;
     private final ObjectMapper mapper = new ObjectMapper();
@@ -24,7 +24,7 @@ public class MappingService {
 
     private String errorMessage;
 
-    public MappingService(SettingsService settingsService) {
+    public MappingDataService(SettingsService settingsService) {
         this.settingsService = settingsService;
     }
 
@@ -81,29 +81,29 @@ public class MappingService {
     }
 
     public List<AddressMapping> getAddressMapping() {
-        return config.addressMapping;
+        return config.getAddressMapping();
     }
 
     public void addAddressMapping(AddressMapping m) {
-        config.addressMapping.add(m);
+        config.getAddressMapping().add(m);
         save();
     }
 
     public void deleteAddressMapping(AddressMapping m) {
-        config.addressMapping.remove(m);
+        config.getAddressMapping().remove(m);
         save();
     }
 
     public String findInternalAddressId(String customerAddressId) {
-        return config.addressMapping.stream()
+        return config.getAddressMapping().stream()
                 .filter(m -> m.getAccountAddressId().equals(customerAddressId))
-                .map(m -> m.internalAddressId)
+                .map(AddressMapping::getInternalAddressId)
                 .findFirst()
                 .orElse(null);
     }
 
     public AddressMapping findMapping(String customerAddressId) {
-        return config.addressMapping.stream()
+        return config.getAddressMapping().stream()
                 .filter(m -> m.getAccountAddressId().equals(customerAddressId))
                 .findFirst()
                 .orElse(null);

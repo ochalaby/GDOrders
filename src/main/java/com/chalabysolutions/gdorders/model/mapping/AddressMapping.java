@@ -1,16 +1,13 @@
 package com.chalabysolutions.gdorders.model.mapping;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 
+@Data
 public class AddressMapping {
-    public String accountName;
-    public String accountCode;
-    public String deliveryAddress;
-    public String internalAddressId;
-
-    @Setter
-    @Getter
-    private String accountAddressId; // private!
+    private String accountName;
+    private String accountCode;
+    private String deliveryAddress;
+    private String internalAddressId;
+    private String accountAddressId;
 
 }

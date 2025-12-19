@@ -4,7 +4,7 @@ import com.chalabysolutions.gdorders.model.accounts.Account;
 import com.chalabysolutions.gdorders.model.accounts.AccountAddress;
 import com.chalabysolutions.gdorders.model.mapping.AddressMapping;
 import com.chalabysolutions.gdorders.service.AccountDataService;
-import com.chalabysolutions.gdorders.service.MappingService;
+import com.chalabysolutions.gdorders.service.MappingDataService;
 import com.chalabysolutions.gdorders.ui.views.StatusLevel;
 import com.chalabysolutions.gdorders.ui.views.mapping.components.MappingForm;
 import com.chalabysolutions.gdorders.ui.views.mapping.components.MappingGrid;
@@ -14,14 +14,14 @@ import java.util.List;
 
 public class MappingPresenter {
 
-    private final MappingService mappingService;
+    private final MappingDataService mappingService;
     private final AccountDataService accountService;
 
     private MappingForm mappingForm;
     private MappingGrid mappingGrid;
     private StatusBar status;
 
-    public MappingPresenter(MappingService mappingService, AccountDataService accountService) {
+    public MappingPresenter(MappingDataService mappingService, AccountDataService accountService) {
         this.mappingService = mappingService;
         this.accountService = accountService;
     }
@@ -49,7 +49,7 @@ public class MappingPresenter {
     public List<AccountAddress> getAvailableAddresses(Account acc) {
         return acc.getAddresses().stream()
                 .filter(a -> mappingService.getAddressMapping().stream()
-                        .noneMatch(m -> m.internalAddressId.equals(a.getId())))
+                        .noneMatch(m -> m.getInternalAddressId().equals(a.getId())))
                 .toList();
     }
 
@@ -92,11 +92,11 @@ public class MappingPresenter {
         }
 
         AddressMapping m = new AddressMapping();
-        m.accountName = account.getName();
-        m.accountCode = account.getCode();
-        m.deliveryAddress = delivery.getAddressLine1()+ ", " + delivery.getPostalCode()
-                + " " + delivery.getCity() + ", " + delivery.getCountry().getCode();
-        m.internalAddressId = delivery.getId();
+        m.setAccountName(account.getName());
+        m.setAccountCode(account.getCode());
+        m.setDeliveryAddress(delivery.getAddressLine1()+ ", " + delivery.getPostalCode()
+                + " " + delivery.getCity() + ", " + delivery.getCountry().getCode());
+        m.setInternalAddressId(delivery.getId());
         m.setAccountAddressId(customerId);
 
         onAddressMappingAdded(m);
@@ -112,7 +112,7 @@ public class MappingPresenter {
     public void onAddressMappingDeleted(AddressMapping deleted) {
         List<AddressMapping> mappings = mappingService.getAddressMapping();
         AddressMapping existing = mappings.stream()
-                .filter(m -> m.internalAddressId.equals(deleted.internalAddressId))
+                .filter(m -> m.getInternalAddressId().equals(deleted.getInternalAddressId()))
                 .findFirst()
                 .orElse(null);
 
@@ -130,7 +130,7 @@ public class MappingPresenter {
         // Zoek het bestaande object in config.addressMapping op basis van unieke sleutel (bv. internalAddressId)
         List<AddressMapping> mappings = mappingService.getAddressMapping();
         for (AddressMapping m : mappings) {
-            if (m.internalAddressId.equals(edited.internalAddressId)) {
+            if (m.getInternalAddressId().equals(edited.getInternalAddressId())) {
                 m.setAccountAddressId(edited.getAccountAddressId());
                 break;
             }

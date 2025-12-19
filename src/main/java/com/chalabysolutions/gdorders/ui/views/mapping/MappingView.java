@@ -1,7 +1,7 @@
 package com.chalabysolutions.gdorders.ui.views.mapping;
 
 import com.chalabysolutions.gdorders.service.AccountDataService;
-import com.chalabysolutions.gdorders.service.MappingService;
+import com.chalabysolutions.gdorders.service.MappingDataService;
 import com.chalabysolutions.gdorders.ui.layout.MainLayout;
 import com.chalabysolutions.gdorders.ui.views.mapping.components.MappingForm;
 import com.chalabysolutions.gdorders.ui.views.mapping.components.MappingFormState;
@@ -19,7 +19,7 @@ import com.vaadin.flow.router.Route;
 @PreserveOnRefresh
 public class MappingView extends VerticalLayout {
 
-    public MappingView(MappingService mapping, AccountDataService accountService, MappingFormState formState) {
+    public MappingView(MappingDataService mapping, AccountDataService accountService, MappingFormState formState) {
         setSizeFull();
         setPadding(true);
 

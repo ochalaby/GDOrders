@@ -4,6 +4,7 @@ import com.chalabysolutions.gdorders.model.mapping.AddressMapping;
 import com.chalabysolutions.gdorders.ui.views.mapping.logic.MappingPresenter;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.grid.Grid;
+import com.vaadin.flow.component.grid.GridVariant;
 import com.vaadin.flow.component.grid.editor.Editor;
 import com.vaadin.flow.component.icon.Icon;
 import com.vaadin.flow.component.icon.VaadinIcon;
@@ -18,6 +19,7 @@ public class MappingGrid extends Grid<AddressMapping> {
     public MappingGrid(MappingPresenter presenter) {
         super(AddressMapping.class, false);
         setHeight("200px");
+        addThemeVariants(GridVariant.LUMO_ROW_STRIPES);
 
         provider = new ListDataProvider<>(presenter.getAddressMapping());
         setDataProvider(provider);
@@ -54,10 +56,10 @@ public class MappingGrid extends Grid<AddressMapping> {
             presenter.onAddressMappingEdited(e.getItem());
         });
 
-        addColumn(m -> m.accountName).setHeader("Account naam").setWidth("150px").setFlexGrow(0).setResizable(true);
-        addColumn(m -> m.accountCode).setHeader("Interne account code").setWidth("180px").setFlexGrow(0).setResizable(true);
-        addColumn(m -> m.deliveryAddress).setHeader("Aflever adres").setWidth("380px").setFlexGrow(0).setResizable(true);
-        addColumn(m -> m.internalAddressId).setHeader("Interne adres ID").setWidth("350px").setFlexGrow(0).setResizable(true);
+        addColumn(AddressMapping::getAccountName).setHeader("Account naam").setWidth("150px").setFlexGrow(0).setResizable(true);
+        addColumn(AddressMapping::getAccountCode).setHeader("Interne account code").setWidth("180px").setFlexGrow(0).setResizable(true);
+        addColumn(AddressMapping::getDeliveryAddress).setHeader("Aflever adres").setWidth("380px").setFlexGrow(0).setResizable(true);
+        addColumn(AddressMapping::getInternalAddressId).setHeader("Interne adres ID").setWidth("350px").setFlexGrow(0).setResizable(true);
         addColumn(AddressMapping::getAccountAddressId).setHeader("Sales order adres ID").setWidth("350px").setFlexGrow(0).setResizable(true)
                 .setEditorComponent(editAccountAddressId);
 

@@ -14,7 +14,7 @@ public class OrderConversionService {
 
     private Account selectedAccount;
     private String warehouseCode;
-    private MappingService mappingService;
+    private MappingDataService mappingService;
 
     public Order convert(Order c) {
         Order internal = new Order();
@@ -53,8 +53,8 @@ public class OrderConversionService {
             AddressMapping mappedAddress = mappingService.findMapping(c.getDeliveryAddress().getId());
 
             if (mappedAddress != null) {
-                deliveryAddress.setId(mappedAddress.internalAddressId);
-                deliveryAddress.setAddressLine1(mappedAddress.deliveryAddress);
+                deliveryAddress.setId(mappedAddress.getInternalAddressId());
+                deliveryAddress.setAddressLine1(mappedAddress.getDeliveryAddress());
             }
         }
 

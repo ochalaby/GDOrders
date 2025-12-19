@@ -23,6 +23,8 @@ public class AccountDataService {
     private final SettingsService settingsService;
     private final XmlAccountReader accountReader = new XmlAccountReader();
 
+    @Setter
+    private Account selectedAccount;
     private final List<Account> accounts = new ArrayList<>();
     private String errorMessage;
 
@@ -63,9 +65,6 @@ public class AccountDataService {
     public Optional<String> getErrorMessage() {
         return Optional.ofNullable(errorMessage);
     }
-
-    @Setter
-    private Account selectedAccount;
 
     public void clear(){
         accounts.clear();

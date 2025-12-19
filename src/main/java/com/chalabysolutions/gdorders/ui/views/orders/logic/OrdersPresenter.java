@@ -22,7 +22,7 @@ public class OrdersPresenter {
     private final OrderDataService orderService;
     private final AccountDataService accountService;
     private final SettingsService settingsService;
-    private final MappingService mappingService;
+    private final MappingDataService mappingService;
     private final OrderConversionService converter;
 
     private CustomerOrdersGrid customerOrdersGrid;
@@ -34,7 +34,7 @@ public class OrdersPresenter {
     private final XmlOrderReader orderReader = new XmlOrderReader();
     private final XmlOrderWriter orderWriter = new XmlOrderWriter();
 
-    public OrdersPresenter(OrderDataService orderService, AccountDataService accountService, MappingService mappingService, SettingsService settingsService) {
+    public OrdersPresenter(OrderDataService orderService, AccountDataService accountService, MappingDataService mappingService, SettingsService settingsService) {
         this.orderService = orderService;
         this.accountService = accountService;
         this.mappingService = mappingService;

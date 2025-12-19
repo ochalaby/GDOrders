@@ -1,8 +1,11 @@
 package com.chalabysolutions.gdorders.model.mapping;
 
+import lombok.Data;
+
 import java.util.ArrayList;
 import java.util.List;
 
+@Data
 public class MappingConfig {
-    public List<AddressMapping> addressMapping = new ArrayList<>();
+    private List<AddressMapping> addressMapping = new ArrayList<>();
 }

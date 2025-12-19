@@ -16,7 +16,8 @@ public class AccountsGrid extends Grid<AccountAddressRow> {
         addColumn(row -> row.getAddress().getType()).setHeader("Type").setWidth("80px").setFlexGrow(0).setResizable(true);
         addColumn(row -> row.getAddress().getAddressLine1()).setHeader("Adres").setWidth("240px").setFlexGrow(0).setResizable(true);
         addColumn(row -> row.getAddress().getPostalCode()).setHeader("Postcode").setWidth("120px").setFlexGrow(0).setResizable(true);
-        addColumn(row -> row.getAddress().getCity()).setHeader("Plaats").setWidth("120px").setFlexGrow(0).setResizable(true);
+        addColumn(row -> row.getAddress().getCity()).setHeader("Plaats").setWidth("150px").setFlexGrow(0).setResizable(true);
         addColumn(row -> row.getAddress().getCountry().getCode()).setHeader("Land").setWidth("120px").setFlexGrow(0).setResizable(true);
+        addColumn(row -> row.getAddress().getId()).setHeader("Inter adres ID").setWidth("350px").setFlexGrow(0).setResizable(true);
     }
 }

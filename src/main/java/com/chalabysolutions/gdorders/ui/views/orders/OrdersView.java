@@ -1,7 +1,7 @@
 package com.chalabysolutions.gdorders.ui.views.orders;
 
 import com.chalabysolutions.gdorders.service.AccountDataService;
-import com.chalabysolutions.gdorders.service.MappingService;
+import com.chalabysolutions.gdorders.service.MappingDataService;
 import com.chalabysolutions.gdorders.service.OrderDataService;
 import com.chalabysolutions.gdorders.service.SettingsService;
 import com.chalabysolutions.gdorders.ui.layout.MainLayout;
@@ -15,8 +15,6 @@ import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.PreserveOnRefresh;
 import com.vaadin.flow.router.Route;
 
-import java.io.*;
-
 @Route(value = "", layout = MainLayout.class)
 @PageTitle("Orders")
 @PreserveOnRefresh
@@ -24,7 +22,7 @@ public class OrdersView extends VerticalLayout {
 
     public OrdersView(OrderDataService data,
                       AccountDataService account,
-                      MappingService mapping,
+                      MappingDataService mapping,
                       SettingsService settings) {
 
         setSizeFull();
