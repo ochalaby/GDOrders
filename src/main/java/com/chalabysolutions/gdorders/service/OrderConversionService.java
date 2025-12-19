@@ -2,6 +2,7 @@ package com.chalabysolutions.gdorders.service;
 
 import com.chalabysolutions.gdorders.model.accounts.Account;
 import com.chalabysolutions.gdorders.model.generic.ShippingMethod;
+import com.chalabysolutions.gdorders.model.mapping.AddressMapping;
 import com.chalabysolutions.gdorders.model.orders.*;
 import lombok.Setter;
 
@@ -22,7 +23,7 @@ public class OrderConversionService {
 
         // Use SalesOrderNumber as YourRef and if exist add original YourRef
         String yourRef = c.getSalesordernumber();
-        if (!c.getYourRef().isEmpty()){
+        if (c.getYourRef()!= null && !c.getYourRef().isEmpty()){
             yourRef += "_" + c.getYourRef();
         }
         internal.setYourRef(yourRef);
@@ -45,15 +46,15 @@ public class OrderConversionService {
         invoiceTo.setName(selectedAccount.getName());
         internal.setInvoiceTo(invoiceTo);
 
-        // Set the deliveryAddress ID (based on account lookup)
+        // Set the deliveryAddress (based on customerDeliveryAddressId lookup in mapping)
         DeliveryAddress deliveryAddress = new DeliveryAddress();
 
-        if (mappingService != null) {
-            String customerDeliveryId = c.getDeliveryAddress().getId();
-            String mappedAddressId = mappingService.findInternalAddressId(customerDeliveryId);
+        if (c.getDeliveryAddress() != null && mappingService != null) {
+            AddressMapping mappedAddress = mappingService.findMapping(c.getDeliveryAddress().getId());
 
-            if (mappedAddressId != null) {
-                deliveryAddress.setId(mappedAddressId);
+            if (mappedAddress != null) {
+                deliveryAddress.setId(mappedAddress.internalAddressId);
+                deliveryAddress.setAddressLine1(mappedAddress.deliveryAddress);
             }
         }
 
@@ -62,13 +63,19 @@ public class OrderConversionService {
         // Warehouse is taken from the settings
         Warehouse warehouse = new Warehouse();
         warehouse.setCode(warehouseCode);
-        warehouse.setDescription(c.getWarehouse().getDescription());
+        if (c.getWarehouse() != null) {
+            warehouse.setDescription(c.getWarehouse().getDescription());
+        }
         internal.setWarehouse(warehouse);
 
-        // Shipping method is always 'DDP' for now
-        //TODO: Get shipping method from account list (look up based on selected account)
+        // Shipping method from account list (look up based on selected account)
+        // If not existing, then use default 'DDP'
         ShippingMethod shippingMethod = new ShippingMethod();
-        shippingMethod.setCode("DDP");
+        if (c.getShippingMethod() != null) {
+            shippingMethod.setCode(selectedAccount.getShippingMethod().getCode());
+        } else {
+            shippingMethod.setCode("DDP");
+        }
         internal.setShippingMethod(shippingMethod);
 
         // kopieer orderlines

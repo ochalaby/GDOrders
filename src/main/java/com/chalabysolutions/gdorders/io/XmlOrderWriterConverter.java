@@ -63,44 +63,46 @@ public class XmlOrderWriterConverter {
             if (order.getDeliveryAddress()  != null) {
                 DeliveryAddress internalDeliveryAddress = new DeliveryAddress();
                 internalDeliveryAddress.setID(order.getDeliveryAddress().getId());
-                internalDeliveryAddress.setAddressLine1Attr(order.getDeliveryAddress().getAddressLine1());
-                internalDeliveryAddress.setAddressLine2Attr(order.getDeliveryAddress().getAddressLine2());
-                internalDeliveryAddress.setAddressLine3Attr(order.getDeliveryAddress().getAddressLine3());
-                internalDeliveryAddress.setPostalCodeAttr(order.getDeliveryAddress().getPostalCode());
-                internalDeliveryAddress.setCityAttr(order.getDeliveryAddress().getCity());
 
-                if (order.getDeliveryAddress().getState()  != null) {
-                    internalDeliveryAddress.setStateCodeAttr(order.getDeliveryAddress().getState().getCode());
-                }
-
-                if (order.getDeliveryAddress().getCountry()  != null) {
-                    internalDeliveryAddress.setCountryCodeAttr(order.getDeliveryAddress().getCountry().getValue());
-                }
-
-                internalDeliveryAddress.setAddressLine1(order.getDeliveryAddress().getAddressLine1());
-                internalDeliveryAddress.setAddressLine2(order.getDeliveryAddress().getAddressLine2());
-                internalDeliveryAddress.setAddressLine3(order.getDeliveryAddress().getAddressLine3());
-                internalDeliveryAddress.setPostalCode(order.getDeliveryAddress().getPostalCode());
-                internalDeliveryAddress.setCity(order.getDeliveryAddress().getCity());
-
-                if (order.getDeliveryAddress().getCountry() != null) {
-                    Country internalCountry = new Country();
-                    internalCountry.setCode(order.getDeliveryAddress().getCountry().getCode());
-                    internalCountry.setValue(order.getDeliveryAddress().getCountry().getValue());
-                    internalDeliveryAddress.setCountry(internalCountry);
-                }
-
-                if (order.getDeliveryAddress().getContact() != null) {
-                    Contact internalDeliveryAddressContact = new Contact();
-                    internalDeliveryAddressContact.setID(order.getDeliveryAddress().getContact().getId());
-                    internalDeliveryAddressContact.setLastName(order.getDeliveryAddress().getContact().getLastName());
-                    internalDeliveryAddressContact.setMiddleName(order.getDeliveryAddress().getContact().getMiddleName());
-                    internalDeliveryAddressContact.setFirstName(order.getDeliveryAddress().getContact().getFirstName());
-                    internalDeliveryAddressContact.setInitials(order.getDeliveryAddress().getContact().getInitials());
-                    internalDeliveryAddressContact.setFullName(order.getDeliveryAddress().getContact().getFullName());
-                    internalDeliveryAddressContact.setEmail(order.getDeliveryAddress().getContact().getEmail());
-                    internalDeliveryAddress.setContact(internalDeliveryAddressContact);
-                }
+                // Only fill in the ID, all the other fields are not needed at the moment
+//                internalDeliveryAddress.setAddressLine1Attr(order.getDeliveryAddress().getAddressLine1());
+//                internalDeliveryAddress.setAddressLine2Attr(order.getDeliveryAddress().getAddressLine2());
+//                internalDeliveryAddress.setAddressLine3Attr(order.getDeliveryAddress().getAddressLine3());
+//                internalDeliveryAddress.setPostalCodeAttr(order.getDeliveryAddress().getPostalCode());
+//                internalDeliveryAddress.setCityAttr(order.getDeliveryAddress().getCity());
+//
+//                if (order.getDeliveryAddress().getState()  != null) {
+//                    internalDeliveryAddress.setStateCodeAttr(order.getDeliveryAddress().getState().getCode());
+//                }
+//
+//                if (order.getDeliveryAddress().getCountry()  != null) {
+//                    internalDeliveryAddress.setCountryCodeAttr(order.getDeliveryAddress().getCountry().getValue());
+//                }
+//
+//                internalDeliveryAddress.setAddressLine1(order.getDeliveryAddress().getAddressLine1());
+//                internalDeliveryAddress.setAddressLine2(order.getDeliveryAddress().getAddressLine2());
+//                internalDeliveryAddress.setAddressLine3(order.getDeliveryAddress().getAddressLine3());
+//                internalDeliveryAddress.setPostalCode(order.getDeliveryAddress().getPostalCode());
+//                internalDeliveryAddress.setCity(order.getDeliveryAddress().getCity());
+//
+//                if (order.getDeliveryAddress().getCountry() != null) {
+//                    Country internalCountry = new Country();
+//                    internalCountry.setCode(order.getDeliveryAddress().getCountry().getCode());
+//                    internalCountry.setValue(order.getDeliveryAddress().getCountry().getValue());
+//                    internalDeliveryAddress.setCountry(internalCountry);
+//                }
+//
+//                if (order.getDeliveryAddress().getContact() != null) {
+//                    Contact internalDeliveryAddressContact = new Contact();
+//                    internalDeliveryAddressContact.setID(order.getDeliveryAddress().getContact().getId());
+//                    internalDeliveryAddressContact.setLastName(order.getDeliveryAddress().getContact().getLastName());
+//                    internalDeliveryAddressContact.setMiddleName(order.getDeliveryAddress().getContact().getMiddleName());
+//                    internalDeliveryAddressContact.setFirstName(order.getDeliveryAddress().getContact().getFirstName());
+//                    internalDeliveryAddressContact.setInitials(order.getDeliveryAddress().getContact().getInitials());
+//                    internalDeliveryAddressContact.setFullName(order.getDeliveryAddress().getContact().getFullName());
+//                    internalDeliveryAddressContact.setEmail(order.getDeliveryAddress().getContact().getEmail());
+//                    internalDeliveryAddress.setContact(internalDeliveryAddressContact);
+//                }
 
                 internalOrder.setDeliveryAddress(internalDeliveryAddress);
             }

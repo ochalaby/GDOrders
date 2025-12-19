@@ -102,4 +102,11 @@ public class MappingService {
                 .orElse(null);
     }
 
+    public AddressMapping findMapping(String customerAddressId) {
+        return config.addressMapping.stream()
+                .filter(m -> m.getAccountAddressId().equals(customerAddressId))
+                .findFirst()
+                .orElse(null);
+    }
+
 }

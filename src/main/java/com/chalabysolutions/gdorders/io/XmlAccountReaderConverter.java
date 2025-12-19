@@ -3,6 +3,7 @@ package com.chalabysolutions.gdorders.io;
 import com.chalabysolutions.gdorders.model.accounts.Account;
 import com.chalabysolutions.gdorders.model.accounts.AccountAddress;
 import com.chalabysolutions.gdorders.model.generic.Country;
+import com.chalabysolutions.gdorders.model.generic.ShippingMethod;
 import com.chalabysolutions.gdorders.model.generic.State;
 import com.chalabysolutions.gdorders.model.internalaccounts.Accounts;
 import com.chalabysolutions.gdorders.model.internalaccounts.EExact;
@@ -27,6 +28,13 @@ public class XmlAccountReaderConverter {
             account.setStatus(xmlAccount.getStatus());
             account.setId(xmlAccount.getID());
             account.setName(xmlAccount.getName());
+
+            if (xmlAccount.getShippingMethod() != null) {
+                ShippingMethod shippingMethod = new ShippingMethod();
+                shippingMethod.setCode(xmlAccount.getShippingMethod().getCode());
+                shippingMethod.setDescription(xmlAccount.getShippingMethod().getDescription());
+                account.setShippingMethod(shippingMethod);
+            }
 
             // Adresses
             List<AccountAddress> addresses = new ArrayList<>();

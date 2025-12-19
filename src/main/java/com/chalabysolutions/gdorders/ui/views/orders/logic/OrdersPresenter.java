@@ -10,10 +10,8 @@ import com.chalabysolutions.gdorders.ui.views.orders.components.CustomerOrdersGr
 import com.chalabysolutions.gdorders.ui.views.orders.components.InternalOrdersGrid;
 import com.chalabysolutions.gdorders.ui.views.orders.components.OrderLinesGrid;
 import com.chalabysolutions.gdorders.ui.views.orders.components.StatusBar;
-import com.vaadin.flow.component.html.Anchor;
 import com.vaadin.flow.component.upload.Upload;
 import com.vaadin.flow.component.upload.receivers.MemoryBuffer;
-import com.vaadin.flow.server.StreamResource;
 
 import java.io.*;
 import java.util.List;
@@ -169,10 +167,8 @@ public class OrdersPresenter {
                         .filter(orderService.getSelectedInternalOrders()::contains)
                         .toList();
 
-
         try {
             exportServerSide(orders);
-//            exportBrowserSaveAs(orders);
         } catch (Exception e) {
             status.show(StatusLevel.ERROR, "Export fout: " + e.getMessage());
         }
@@ -195,26 +191,6 @@ public class OrdersPresenter {
         } catch (Exception e) {
             status.show(StatusLevel.ERROR, "Export mislukt: " + e.getMessage());
         }
-    }
-
-    private void exportBrowserSaveAs(List<Order> orders) {
-        String timestamp = java.time.LocalDateTime.now()
-                .format(java.time.format.DateTimeFormatter.ofPattern("yyyyMMdd_HHmmss"));
-        StreamResource resource = new StreamResource("InternalOrders_" + timestamp + ".xml", () -> {
-            try {
-                ByteArrayOutputStream out = new ByteArrayOutputStream();
-                orderWriter.write(orders, out);
-                return new ByteArrayInputStream(out.toByteArray());
-            } catch (Exception e) {
-                return new ByteArrayInputStream(new byte[0]);
-            }
-        });
-
-        Anchor saveAs = new Anchor(resource, "Sla op als…");
-        // download attribute triggers save-as dialog
-        saveAs.getElement().setAttribute("download", "internal_orders.xml");
-//        add(saveAs);
-        saveAs.getElement().executeJs("this.click(); this.remove()");
     }
 
     /* ---- Links to UI components ---- */
