@@ -7,10 +7,12 @@ import com.chalabysolutions.gdorders.ui.views.StatusBar;
 import com.chalabysolutions.gdorders.ui.views.StatusLevel;
 import com.chalabysolutions.gdorders.ui.views.accounts.AccountAddressRow;
 import com.chalabysolutions.gdorders.ui.views.accounts.components.AccountsGrid;
+import com.vaadin.flow.spring.annotation.VaadinSessionScope;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
+@VaadinSessionScope
 public class AccountsPresenter {
 
     private final AccountDataService accountService;

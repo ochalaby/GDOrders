@@ -12,7 +12,6 @@ import java.util.Set;
 
 @Getter
 @Service
-@VaadinSessionScope
 public class OrderDataService {
 
     private final List<Order> customerOrders = new ArrayList<>();

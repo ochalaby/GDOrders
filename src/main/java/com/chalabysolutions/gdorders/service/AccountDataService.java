@@ -3,7 +3,7 @@ package com.chalabysolutions.gdorders.service;
 import com.chalabysolutions.gdorders.io.XmlAccountReader;
 import com.chalabysolutions.gdorders.model.accounts.Account;
 import com.chalabysolutions.gdorders.model.accounts.AccountAddress;
-import com.vaadin.flow.spring.annotation.VaadinSessionScope;
+import com.chalabysolutions.gdorders.ui.views.accounts.AccountAddressRow;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.stereotype.Service;
@@ -17,7 +17,6 @@ import java.util.Optional;
 
 @Getter
 @Service
-@VaadinSessionScope
 public class AccountDataService {
 
     private final SettingsService settingsService;
@@ -69,6 +68,28 @@ public class AccountDataService {
         return accounts.stream()
                 .flatMap(a -> a.getAddresses().stream())
                 .filter(address -> addressId.equals(address.getId()))
+                .findFirst();
+    }
+
+    public Optional<AccountAddressRow> findAddressRowById(String addressId) {
+        if (addressId == null) {
+            return Optional.empty();
+        }
+
+        return accounts.stream()
+                .flatMap(acc -> acc.getAddresses().stream()
+                        .map(addr -> new AccountAddressRow(acc, addr)))
+                .filter(addressRow -> addressId.equals(addressRow.getAddress().getId()))
+                .findFirst();
+    }
+
+    public Optional<Account> findAccountById(String accountId) {
+        if (accountId == null) {
+            return Optional.empty();
+        }
+
+        return accounts.stream()
+                .filter(a -> accountId.equals(a.getId()))
                 .findFirst();
     }
 

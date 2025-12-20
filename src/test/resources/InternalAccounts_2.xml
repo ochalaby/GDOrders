@@ -113,7 +113,7 @@
             <IsPurchase>1</IsPurchase>
             <ShowRemarkForSales>0</ShowRemarkForSales>
             <Address type="DEL" default="1" ID="{c0a8c2c1-7e54-4cf9-8c2b-5e6e2d5d51f1}">
-                <AddressLine1>Block 1, Unit 3, Number 2</AddressLine1>
+                <AddressLine1>Block 2, Unit 3, Number 2</AddressLine1>
                 <AddressLine2 />
                 <AddressLine3 />
                 <PostalCode>KA6 7AA</PostalCode>

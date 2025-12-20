@@ -1,6 +1,9 @@
 package com.chalabysolutions.gdorders.service;
 
+import com.chalabysolutions.gdorders.model.accounts.Account;
+import com.chalabysolutions.gdorders.model.accounts.AccountAddress;
 import com.chalabysolutions.gdorders.model.mapping.AddressMapping;
+import com.chalabysolutions.gdorders.model.mapping.DisplayInfo;
 import com.chalabysolutions.gdorders.model.mapping.MappingConfig;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.stereotype.Service;
@@ -19,7 +22,7 @@ public class MappingDataService {
     private final ObjectMapper mapper = new ObjectMapper();
     private Path configPath;
 
-    private MappingConfig config = new MappingConfig();
+    private final MappingConfig config = new MappingConfig();
 
     private String errorMessage;
 
@@ -46,7 +49,10 @@ public class MappingDataService {
 
             // Bestand bestaat → laden
             try (InputStream in = Files.newInputStream(configPath)) {
-                config = mapper.readValue(in, MappingConfig.class);
+                MappingConfig loaded = mapper.readValue(in, MappingConfig.class);
+                config.getAddressMapping().clear();
+                config.getAddressMapping().addAll(loaded.getAddressMapping());
+
                 errorMessage = null;
                 return true;
             }
@@ -55,6 +61,21 @@ public class MappingDataService {
             errorMessage = "Kon mapping configuratie niet laden: " + e.getMessage();
             return false;
         }
+    }
+
+    public void refreshDisplayInfo(AccountDataService accountService) {
+        for (AddressMapping mapping : config.getAddressMapping()) {
+            // Zoek het interne account/adres op basis van internalAddressId
+            String internalAddressId = mapping.getInternalAddressId();
+
+            accountService.findAddressRowById(internalAddressId).ifPresent(addressRow -> {
+                // Update display info
+                mapping.setDisplayInfo(createNewDisplayInfo(addressRow.getAccount(), addressRow.getAddress()));
+            });
+        }
+
+        // Opslaan na update
+        save();
     }
 
     public void save() {
@@ -78,7 +99,26 @@ public class MappingDataService {
         return config.getAddressMapping();
     }
 
-    public void addAddressMapping(AddressMapping m) {
+    private AddressMapping createNewAddressMapping(Account account, AccountAddress delivery, String customerId) {
+        AddressMapping mapping = new AddressMapping();
+        DisplayInfo info = createNewDisplayInfo(account, delivery);
+        mapping.setDisplayInfo(info);
+        mapping.setInternalAddressId(delivery.getId());
+        mapping.setExternalAddressId(customerId);
+        return mapping;
+    }
+
+    private DisplayInfo createNewDisplayInfo(Account account, AccountAddress delivery) {
+        DisplayInfo info = new DisplayInfo();
+        info.setAccountName(account.getName());
+        info.setAccountCode(account.getCode());
+        info.setDeliveryAddress(delivery.getAddressLine1()+ ", " + delivery.getPostalCode()
+                + " " + delivery.getCity() + ", " + delivery.getCountry().getCode());
+        return info;
+    }
+
+    public void addAddressMapping(Account account, AccountAddress delivery, String customerId) {
+        AddressMapping m = createNewAddressMapping(account, delivery, customerId);
         config.getAddressMapping().add(m);
         save();
     }

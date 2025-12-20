@@ -12,11 +12,13 @@ import com.chalabysolutions.gdorders.ui.views.orders.components.InternalOrdersGr
 import com.chalabysolutions.gdorders.ui.views.orders.components.OrderLinesGrid;
 import com.vaadin.flow.component.upload.Upload;
 import com.vaadin.flow.component.upload.receivers.MemoryBuffer;
+import com.vaadin.flow.spring.annotation.VaadinSessionScope;
 
 import java.io.*;
 import java.util.List;
 import java.util.Set;
 
+@VaadinSessionScope
 public class OrdersPresenter {
 
     private final OrderDataService orderService;

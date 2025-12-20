@@ -32,31 +32,42 @@ public class MappingForm extends HorizontalLayout {
         customerAddressId.setWidth("350px");
 
         // waarden uit state herstellen
-        if (formState.getSelectedAccount() != null) {
-            accountBox.setValue(formState.getSelectedAccount());
-            deliveryAddressBox.setItems(formState.getSelectedAccount().getAddresses());
+        if (formState.getSelectedAccountId() != null) {
+            presenter.findAccountById(formState.getSelectedAccountId())
+                    .ifPresent(acc -> {
+                        accountBox.setValue(acc);
+                        deliveryAddressBox.setItems(presenter.getAvailableAddresses(acc));
+                    });
         }
 
-        if (formState.getSelectedAddress() != null) {
-            deliveryAddressBox.setValue(formState.getSelectedAddress());
+        if (formState.getSelectedAddressId() != null && accountBox.getValue() != null) {
+            Account acc = accountBox.getValue();
+            acc.getAddresses().stream()
+                    .filter(a -> a.getId().equals(formState.getSelectedAddressId()))
+                    .findFirst()
+                    .ifPresent(deliveryAddressBox::setValue);
         }
 
         if (formState.getCustomerAddressId() != null) {
             customerAddressId.setValue(formState.getCustomerAddressId());
         }
 
-        // Wanneer user een account kiest → interne adressen vullen
         accountBox.addValueChangeListener(e -> {
-            Account selectedAccount = e.getValue();
-            formState.setSelectedAccount(selectedAccount);
-            if (selectedAccount != null) {
-                deliveryAddressBox.setItems(presenter.getAvailableAddresses(selectedAccount));
+            Account selected = e.getValue();
+            formState.setSelectedAccountId(
+                    selected != null ? selected.getId() : null
+            );
+
+            if (selected != null) {
+                deliveryAddressBox.setItems(presenter.getAvailableAddresses(selected));
                 deliveryAddressBox.clear();
             }
         });
 
         deliveryAddressBox.addValueChangeListener(e ->
-                formState.setSelectedAddress(e.getValue())
+                formState.setSelectedAddressId(
+                        e.getValue() != null ? e.getValue().getId() : null
+                )
         );
 
         customerAddressId.addValueChangeListener(e ->
@@ -64,7 +75,7 @@ public class MappingForm extends HorizontalLayout {
         );
 
         Button saveBtn = new Button("Mapping opslaan", click -> {
-            presenter.onSaveMapping(formState.getSelectedAccount(), formState.getSelectedAddress(), formState.getCustomerAddressId());
+            presenter.onSaveMapping(formState.getSelectedAccountId(), formState.getSelectedAddressId(), formState.getCustomerAddressId());
 
             // clear velden
             accountBox.clear();

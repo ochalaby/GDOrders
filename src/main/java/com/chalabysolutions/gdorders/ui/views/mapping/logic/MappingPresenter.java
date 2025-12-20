@@ -3,7 +3,6 @@ package com.chalabysolutions.gdorders.ui.views.mapping.logic;
 import com.chalabysolutions.gdorders.model.accounts.Account;
 import com.chalabysolutions.gdorders.model.accounts.AccountAddress;
 import com.chalabysolutions.gdorders.model.mapping.AddressMapping;
-import com.chalabysolutions.gdorders.model.mapping.DisplayInfo;
 import com.chalabysolutions.gdorders.service.AccountDataService;
 import com.chalabysolutions.gdorders.service.MappingDataService;
 import com.chalabysolutions.gdorders.ui.views.StatusBar;
@@ -12,6 +11,7 @@ import com.chalabysolutions.gdorders.ui.views.mapping.components.MappingForm;
 import com.chalabysolutions.gdorders.ui.views.mapping.components.MappingGrid;
 
 import java.util.List;
+import java.util.Optional;
 
 public class MappingPresenter {
 
@@ -86,30 +86,31 @@ public class MappingPresenter {
                 );
     }
 
-    public void onSaveMapping(Account account, AccountAddress delivery, String customerId) {
-        if (account == null || delivery == null || customerId == null || customerId.isBlank()) {
+    public void onSaveMapping(String accountId, String addressId, String customerId) {
+        if (accountId == null || addressId == null || customerId == null || customerId.isBlank()) {
             status.show(StatusLevel.ERROR, "Alle velden zijn verplicht");
             return;
         }
 
-        AddressMapping m = new AddressMapping();
-        DisplayInfo info = new DisplayInfo();
-        info.setAccountName(account.getName());
-        info.setAccountCode(account.getCode());
-        info.setDeliveryAddress(delivery.getAddressLine1()+ ", " + delivery.getPostalCode()
-                + " " + delivery.getCity() + ", " + delivery.getCountry().getCode());
-        m.setDisplayInfo(info);
-        m.setInternalAddressId(delivery.getId());
-        m.setExternalAddressId(customerId);
+        Account account = findAccountById(accountId)
+                .orElseThrow(() -> new IllegalStateException("Account niet gevonden: " + accountId));
 
-        onAddressMappingAdded(m);
-    }
+        AccountAddress address = account.getAddresses().stream()
+                .filter(a -> a.getId().equals(addressId))
+                .findFirst()
+                .orElseThrow(() -> new IllegalStateException("Adres niet gevonden: " + addressId));
 
-    public void onAddressMappingAdded(AddressMapping m) {
-        mappingService.addAddressMapping(m);
+
+        mappingService.addAddressMapping(account, address, customerId);
         mappingGrid.getListDataProvider().refreshAll();
         status.show(StatusLevel.INFO, "Mapping opgeslagen!");
     }
+
+    public Optional<Account> findAccountById(String accountId) {
+        accountService.ensureAccountsLoaded();
+        return accountService.findAccountById(accountId);
+    }
+
 
     public void onAddressMappingDeleted(AddressMapping deleted) {
         List<AddressMapping> mappings = mappingService.getAddressMapping();

@@ -4,7 +4,9 @@ import com.chalabysolutions.gdorders.service.AccountDataService;
 import com.chalabysolutions.gdorders.service.MappingDataService;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
+import org.springframework.stereotype.Component;
 
+@Component()
 public class StartupRunner implements ApplicationRunner {
     private final AccountDataService accountService;
     private final MappingDataService mappingService;
@@ -18,6 +20,9 @@ public class StartupRunner implements ApplicationRunner {
     @Override
     public void run(ApplicationArguments args) {
         accountService.loadFromSettings();
-        mappingService.loadFromSettings();
+        boolean loaded = mappingService.loadFromSettings();
+        if (loaded) {
+            mappingService.refreshDisplayInfo(accountService);
+        }
     }
 }
