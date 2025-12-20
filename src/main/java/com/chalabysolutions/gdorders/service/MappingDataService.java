@@ -3,7 +3,6 @@ package com.chalabysolutions.gdorders.service;
 import com.chalabysolutions.gdorders.model.mapping.AddressMapping;
 import com.chalabysolutions.gdorders.model.mapping.MappingConfig;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import jakarta.annotation.PostConstruct;
 import org.springframework.stereotype.Service;
 
 import java.io.InputStream;
@@ -26,11 +25,6 @@ public class MappingDataService {
 
     public MappingDataService(SettingsService settingsService) {
         this.settingsService = settingsService;
-    }
-
-    @PostConstruct
-    public void init() {
-        loadFromSettings();
     }
 
     public boolean loadFromSettings(){
@@ -96,15 +90,8 @@ public class MappingDataService {
 
     public String findInternalAddressId(String customerAddressId) {
         return config.getAddressMapping().stream()
-                .filter(m -> m.getAccountAddressId().equals(customerAddressId))
+                .filter(m -> m.getExternalAddressId().equals(customerAddressId))
                 .map(AddressMapping::getInternalAddressId)
-                .findFirst()
-                .orElse(null);
-    }
-
-    public AddressMapping findMapping(String customerAddressId) {
-        return config.getAddressMapping().stream()
-                .filter(m -> m.getAccountAddressId().equals(customerAddressId))
                 .findFirst()
                 .orElse(null);
     }

@@ -2,8 +2,8 @@ package com.chalabysolutions.gdorders.service;
 
 import com.chalabysolutions.gdorders.io.XmlAccountReader;
 import com.chalabysolutions.gdorders.model.accounts.Account;
+import com.chalabysolutions.gdorders.model.accounts.AccountAddress;
 import com.vaadin.flow.spring.annotation.VaadinSessionScope;
-import jakarta.annotation.PostConstruct;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.stereotype.Service;
@@ -30,11 +30,6 @@ public class AccountDataService {
 
     public AccountDataService(SettingsService settingsService) {
         this.settingsService = settingsService;
-    }
-
-    @PostConstruct
-    public void init() {
-        loadFromSettings();
     }
 
     public boolean loadFromSettings(){
@@ -66,8 +61,27 @@ public class AccountDataService {
         return Optional.ofNullable(errorMessage);
     }
 
+    public Optional<AccountAddress> findAddressById(String addressId) {
+        if (addressId == null) {
+            return Optional.empty();
+        }
+
+        return accounts.stream()
+                .flatMap(a -> a.getAddresses().stream())
+                .filter(address -> addressId.equals(address.getId()))
+                .findFirst();
+    }
+
     public void clear(){
         accounts.clear();
+    }
+
+    /** Lazy load helper: laad alleen als lijst leeg is */
+    public boolean ensureAccountsLoaded() {
+        if (accounts.isEmpty()) {
+            return loadFromSettings();
+        }
+        return true;
     }
 }
 

@@ -4,6 +4,7 @@ import com.chalabysolutions.gdorders.service.AccountDataService;
 import com.chalabysolutions.gdorders.service.MappingDataService;
 import com.chalabysolutions.gdorders.ui.layout.MainLayout;
 import com.chalabysolutions.gdorders.ui.views.StatusBar;
+import com.chalabysolutions.gdorders.ui.views.StatusLevel;
 import com.chalabysolutions.gdorders.ui.views.mapping.components.MappingForm;
 import com.chalabysolutions.gdorders.ui.views.mapping.components.MappingFormState;
 import com.chalabysolutions.gdorders.ui.views.mapping.components.MappingGrid;
@@ -13,6 +14,8 @@ import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.PreserveOnRefresh;
 import com.vaadin.flow.router.Route;
+
+import java.util.List;
 
 @Route(value = "mapping", layout = MainLayout.class)
 @PageTitle("Mapping")
@@ -35,7 +38,20 @@ public class MappingView extends VerticalLayout {
         p.setMappingGrid(mappingGrid);
 
         add(mappingTitle, mappingForm, mappingGrid, status);
-        p.reloadMappings();
+
+        // Lazy load accounts bij attach
+        addAttachListener(event -> {
+            boolean loaded = accountService.ensureAccountsLoaded();
+            if (loaded) {
+                mappingForm.setAccounts(p.getAccounts());
+            } else {
+                mappingForm.setAccounts(List.of()); // lege lijst
+                status.show(StatusLevel.ERROR, "Kan accounts niet laden: " + accountService.getErrorMessage().orElse("Onbekende fout"));
+            }
+
+            // Reload mappings (JSON) en refresh Grid
+            p.reloadMappings();
+        });
     }
 
 }

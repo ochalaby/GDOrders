@@ -2,6 +2,7 @@ package com.chalabysolutions.gdorders.ui.views.mapping.components;
 
 import com.chalabysolutions.gdorders.model.mapping.AddressMapping;
 import com.chalabysolutions.gdorders.ui.views.mapping.logic.MappingPresenter;
+import com.vaadin.flow.component.AttachEvent;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.grid.Grid;
 import com.vaadin.flow.component.grid.GridVariant;
@@ -11,21 +12,21 @@ import com.vaadin.flow.data.provider.ListDataProvider;
 
 public class MappingGrid extends Grid<AddressMapping> {
 
-    private final ListDataProvider<AddressMapping> provider;
+    private ListDataProvider<AddressMapping> provider;
+    private final MappingPresenter presenter;
 
     public MappingGrid(MappingPresenter presenter) {
         super(AddressMapping.class, false);
         setHeight("200px");
         addThemeVariants(GridVariant.LUMO_ROW_STRIPES);
 
-        provider = new ListDataProvider<>(presenter.getAddressMapping());
-        setDataProvider(provider);
+        this.presenter = presenter;
 
-        addColumn(AddressMapping::getAccountName).setHeader("Account naam").setWidth("150px").setFlexGrow(0).setResizable(true);
-        addColumn(AddressMapping::getAccountCode).setHeader("Interne account code").setWidth("180px").setFlexGrow(0).setResizable(true);
-        addColumn(AddressMapping::getDeliveryAddress).setHeader("Aflever adres").setWidth("380px").setFlexGrow(0).setResizable(true);
+        addColumn(m -> m.getDisplayInfo().getAccountName()).setHeader("Account naam").setWidth("150px").setFlexGrow(0).setResizable(true);
+        addColumn(m -> m.getDisplayInfo().getAccountCode()).setHeader("Interne account code").setWidth("180px").setFlexGrow(0).setResizable(true);
+        addColumn(m -> m.getDisplayInfo().getDeliveryAddress()).setHeader("Aflever adres").setWidth("380px").setFlexGrow(0).setResizable(true);
         addColumn(AddressMapping::getInternalAddressId).setHeader("Interne adres ID").setWidth("350px").setFlexGrow(0).setResizable(true);
-        addColumn(AddressMapping::getAccountAddressId).setHeader("Sales order adres ID").setWidth("350px").setFlexGrow(0).setResizable(true);
+        addColumn(AddressMapping::getExternalAddressId).setHeader("Sales order adres ID").setWidth("350px").setFlexGrow(0).setResizable(true);
 
         addComponentColumn(m -> {
             Button deleteBtn = new Button(new Icon(VaadinIcon.TRASH));
@@ -41,4 +42,12 @@ public class MappingGrid extends Grid<AddressMapping> {
     public ListDataProvider<AddressMapping> getListDataProvider() {
         return provider;
     }
+
+    @Override
+    protected void onAttach(AttachEvent attachEvent) {
+        super.onAttach(attachEvent);
+        provider = new ListDataProvider<>(presenter.getAddressMapping());
+        setDataProvider(provider);
+    }
+
 }

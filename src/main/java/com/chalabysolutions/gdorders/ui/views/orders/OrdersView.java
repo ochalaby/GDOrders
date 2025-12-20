@@ -6,6 +6,7 @@ import com.chalabysolutions.gdorders.service.OrderDataService;
 import com.chalabysolutions.gdorders.service.SettingsService;
 import com.chalabysolutions.gdorders.ui.layout.MainLayout;
 import com.chalabysolutions.gdorders.ui.views.StatusBar;
+import com.chalabysolutions.gdorders.ui.views.StatusLevel;
 import com.chalabysolutions.gdorders.ui.views.orders.components.*;
 import com.chalabysolutions.gdorders.ui.views.orders.logic.OrdersPresenter;
 import com.vaadin.flow.component.button.Button;
@@ -15,6 +16,8 @@ import com.vaadin.flow.component.splitlayout.SplitLayout;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.PreserveOnRefresh;
 import com.vaadin.flow.router.Route;
+
+import java.util.List;
 
 @Route(value = "", layout = MainLayout.class)
 @PageTitle("Orders")
@@ -66,5 +69,16 @@ public class OrdersView extends VerticalLayout {
 
         // Fill the page with components
         add(headerLayout, split, status);
+
+        // Lazy load accounts bij attach
+        addAttachListener(event -> {
+            boolean loaded = account.ensureAccountsLoaded(); // lazy load per sessie
+            if (loaded) {
+                accountSelector.setAccounts(p.getAccounts());
+            } else {
+                accountSelector.setAccounts(List.of());
+                status.show(StatusLevel.ERROR, "Kan accounts niet laden: " + account.getErrorMessage().orElse("Onbekende fout"));
+            }
+        });
     }
 }

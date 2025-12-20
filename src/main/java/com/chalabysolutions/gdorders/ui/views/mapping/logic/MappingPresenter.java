@@ -3,6 +3,7 @@ package com.chalabysolutions.gdorders.ui.views.mapping.logic;
 import com.chalabysolutions.gdorders.model.accounts.Account;
 import com.chalabysolutions.gdorders.model.accounts.AccountAddress;
 import com.chalabysolutions.gdorders.model.mapping.AddressMapping;
+import com.chalabysolutions.gdorders.model.mapping.DisplayInfo;
 import com.chalabysolutions.gdorders.service.AccountDataService;
 import com.chalabysolutions.gdorders.service.MappingDataService;
 import com.chalabysolutions.gdorders.ui.views.StatusBar;
@@ -92,19 +93,20 @@ public class MappingPresenter {
         }
 
         AddressMapping m = new AddressMapping();
-        m.setAccountName(account.getName());
-        m.setAccountCode(account.getCode());
-        m.setDeliveryAddress(delivery.getAddressLine1()+ ", " + delivery.getPostalCode()
+        DisplayInfo info = new DisplayInfo();
+        info.setAccountName(account.getName());
+        info.setAccountCode(account.getCode());
+        info.setDeliveryAddress(delivery.getAddressLine1()+ ", " + delivery.getPostalCode()
                 + " " + delivery.getCity() + ", " + delivery.getCountry().getCode());
+        m.setDisplayInfo(info);
         m.setInternalAddressId(delivery.getId());
-        m.setAccountAddressId(customerId);
+        m.setExternalAddressId(customerId);
 
         onAddressMappingAdded(m);
     }
 
     public void onAddressMappingAdded(AddressMapping m) {
         mappingService.addAddressMapping(m);
-        mappingGrid.getListDataProvider().getItems().add(m);
         mappingGrid.getListDataProvider().refreshAll();
         status.show(StatusLevel.INFO, "Mapping opgeslagen!");
     }
@@ -118,7 +120,6 @@ public class MappingPresenter {
 
         if (existing != null) {
             mappingService.deleteAddressMapping(existing);
-            mappingGrid.getListDataProvider().getItems().remove(deleted);
             mappingGrid.getListDataProvider().refreshAll();
             status.show(StatusLevel.INFO, "Mapping verwijderd");
         } else {
@@ -131,7 +132,7 @@ public class MappingPresenter {
         List<AddressMapping> mappings = mappingService.getAddressMapping();
         for (AddressMapping m : mappings) {
             if (m.getInternalAddressId().equals(edited.getInternalAddressId())) {
-                m.setAccountAddressId(edited.getAccountAddressId());
+                m.setExternalAddressId(edited.getExternalAddressId());
                 break;
             }
         }

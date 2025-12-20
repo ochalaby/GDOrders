@@ -8,12 +8,15 @@ import com.vaadin.flow.component.combobox.ComboBox;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.textfield.TextField;
 
+import java.util.List;
+
 public class MappingForm extends HorizontalLayout {
 
+    ComboBox<Account> accountBox = new ComboBox<>();
 
     public MappingForm(MappingPresenter presenter, MappingFormState formState) {
 
-        ComboBox<Account> accountBox = new ComboBox<>("Account");
+        accountBox.setLabel("Account");
         accountBox.setItems(presenter.getAccounts());
         accountBox.setItemLabelGenerator(Account::getName);
         accountBox.setWidth("250px");
@@ -74,6 +77,10 @@ public class MappingForm extends HorizontalLayout {
 
         add(accountBox, deliveryAddressBox, customerAddressId, saveBtn);
         setAlignItems(Alignment.END);
+    }
+
+    public void setAccounts(List<Account> accounts) {
+        accountBox.setItems(accounts);
     }
 
 }

@@ -2,7 +2,6 @@ package com.chalabysolutions.gdorders.service;
 
 import com.chalabysolutions.gdorders.model.accounts.Account;
 import com.chalabysolutions.gdorders.model.generic.ShippingMethod;
-import com.chalabysolutions.gdorders.model.mapping.AddressMapping;
 import com.chalabysolutions.gdorders.model.orders.*;
 import lombok.Setter;
 
@@ -12,9 +11,15 @@ import java.util.List;
 @Setter
 public class OrderConversionService {
 
-    private Account selectedAccount;
-    private String warehouseCode;
-    private MappingDataService mappingService;
+    private final AccountDataService accountService;
+    private final MappingDataService mappingService;
+    private final SettingsService settingsService;
+
+    public OrderConversionService(AccountDataService accountService, MappingDataService mappingService, SettingsService settingsService) {
+        this.accountService = accountService;
+        this.mappingService = mappingService;
+        this.settingsService = settingsService;
+    }
 
     public Order convert(Order c) {
         Order internal = new Order();
@@ -27,6 +32,8 @@ public class OrderConversionService {
             yourRef += "_" + c.getYourRef();
         }
         internal.setYourRef(yourRef);
+
+        Account selectedAccount = accountService.getSelectedAccount();
 
         OrderedBy orderedBy = new OrderedBy();
         orderedBy.setId(selectedAccount.getId());
@@ -47,22 +54,34 @@ public class OrderConversionService {
         internal.setInvoiceTo(invoiceTo);
 
         // Set the deliveryAddress (based on customerDeliveryAddressId lookup in mapping)
-        DeliveryAddress deliveryAddress = new DeliveryAddress();
+        if (c.getDeliveryAddress() != null) {
 
-        if (c.getDeliveryAddress() != null && mappingService != null) {
-            AddressMapping mappedAddress = mappingService.findMapping(c.getDeliveryAddress().getId());
+            // Find matching internal addressId
+            String internalAddressId = mappingService.findInternalAddressId(c.getDeliveryAddress().getId());
 
-            if (mappedAddress != null) {
-                deliveryAddress.setId(mappedAddress.getInternalAddressId());
-                deliveryAddress.setAddressLine1(mappedAddress.getDeliveryAddress());
+            DeliveryAddress deliveryAddress = new DeliveryAddress();
+            deliveryAddress.setId(internalAddressId);
+
+            if (internalAddressId != null) {
+                // If internal addressId exists, find matching address details
+                accountService
+                        .findAddressById(internalAddressId)
+                        .ifPresent(internalAddress -> {
+                            deliveryAddress.setAddressLine1(internalAddress.getAddressLine1());
+                            deliveryAddress.setAddressLine2(internalAddress.getAddressLine2());
+                            deliveryAddress.setPostalCode(internalAddress.getPostalCode());
+                            deliveryAddress.setCity(internalAddress.getCity());
+                            deliveryAddress.setState(internalAddress.getState());
+                            deliveryAddress.setCountry(internalAddress.getCountry());
+                        });
             }
-        }
 
-        internal.setDeliveryAddress(deliveryAddress);
+            internal.setDeliveryAddress(deliveryAddress);
+        }
 
         // Warehouse is taken from the settings
         Warehouse warehouse = new Warehouse();
-        warehouse.setCode(warehouseCode);
+        warehouse.setCode(settingsService.getWarehouseCode());
         if (c.getWarehouse() != null) {
             warehouse.setDescription(c.getWarehouse().getDescription());
         }

@@ -1,21 +1,35 @@
 {
   "addressMapping" : [ {
-    "accountName" : "Armuntis",
-    "accountCode" : "20002825",
-    "deliveryAddress" : "Dommelshei 2, 5508 VG VELDHOVEN, NL",
-    "internalAddressId" : "{e4c6a5f2-1d9c-41cc-b0af-8a7d43c9c2e4}",
-    "accountAddressId" : "{e4c6a5f2-1d9c-41cc-b0af-8a7d43c9c2ba}"
-  }, {
-    "accountName" : "Armuntis",
-    "accountCode" : "20002825",
-    "deliveryAddress" : "Havezatenlaan 1 -11, 7557 VW HENGELO, NL",
+    "externalAddressId" : "{69acc00d-79c4-47a6-8090-0d5ec16c38ee}",
     "internalAddressId" : "{9f3b1d47-6c98-4e31-9f3a-2d63c0ae4b22}",
-    "accountAddressId" : "{69acc00d-79c4-47a6-8090-0d5ec16c38aa}"
+    "displayInfo" : {
+      "accountCode" : "20002825",
+      "accountName" : "Armuntis",
+      "deliveryAddress" : "Havezatenlaan 1 -11, 7557 VW HENGELO, NL"
+    }
   }, {
-    "accountName" : "SMART. Klantcontact",
-    "accountCode" : "20002720",
-    "deliveryAddress" : "Heikantstraat 3, 5408 PZ VOLKEL, NL",
-    "internalAddressId" : "{6bc2daa0-1a22-42a8-9c70-f829aca8f865}",
-    "accountAddressId" : "adf"
+    "externalAddressId" : "{cb66ec17-bae0-4f25-a15c-09811a42666f}",
+    "internalAddressId" : "{e4c6a5f2-1d9c-41cc-b0af-8a7d43c9c2e4}",
+    "displayInfo" : {
+      "accountCode" : "20002825",
+      "accountName" : "Armuntis",
+      "deliveryAddress" : "Dommelshei 2, 5508 VG VELDHOVEN, NL"
+    }
+  }, {
+    "externalAddressId" : "{c8918473-35cc-4ef1-8dcd-4dda806475ab}",
+    "internalAddressId" : "{4d7f2b3e-8c41-49a1-8470-3c6f5e9d91ce}",
+    "displayInfo" : {
+      "accountCode" : "20002825",
+      "accountName" : "Armuntis",
+      "deliveryAddress" : "Havezatenlaan 250, 7557VW Hengelo OV, NL"
+    }
+  }, {
+    "externalAddressId" : "{3b0c6649-dad6-4582-aca0-4d5523476202}",
+    "internalAddressId" : "{c0a8c2c1-7e54-4cf9-8c2b-5e6e2d5d51f1}",
+    "displayInfo" : {
+      "accountCode" : "20002825",
+      "accountName" : "Armuntis",
+      "deliveryAddress" : "Block 1, Unit 3, Number 2, KA6 7AA Ayr, GB"
+    }
   } ]
 }
