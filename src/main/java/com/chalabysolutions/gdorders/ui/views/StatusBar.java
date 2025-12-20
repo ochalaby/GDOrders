@@ -1,6 +1,5 @@
-package com.chalabysolutions.gdorders.ui.views.settings.components;
+package com.chalabysolutions.gdorders.ui.views;
 
-import com.chalabysolutions.gdorders.ui.views.StatusLevel;
 import com.vaadin.flow.component.html.NativeLabel;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
@@ -15,5 +14,9 @@ public class StatusBar extends VerticalLayout {
     public void show(StatusLevel level, String msg) {
         label.getStyle().set("color", level.getColor());
         label.setText(msg);
+    }
+
+    public void clear(){
+        label.setText("");
     }
 }

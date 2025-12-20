@@ -5,6 +5,7 @@ import com.chalabysolutions.gdorders.service.MappingDataService;
 import com.chalabysolutions.gdorders.service.OrderDataService;
 import com.chalabysolutions.gdorders.service.SettingsService;
 import com.chalabysolutions.gdorders.ui.layout.MainLayout;
+import com.chalabysolutions.gdorders.ui.views.StatusBar;
 import com.chalabysolutions.gdorders.ui.views.orders.components.*;
 import com.chalabysolutions.gdorders.ui.views.orders.logic.OrdersPresenter;
 import com.vaadin.flow.component.button.Button;

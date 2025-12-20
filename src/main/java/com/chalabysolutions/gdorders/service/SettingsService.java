@@ -9,7 +9,7 @@ import java.nio.file.Paths;
 import java.util.Properties;
 
 import com.chalabysolutions.gdorders.ui.views.StatusLevel;
-import com.chalabysolutions.gdorders.ui.views.settings.components.StatusBar;
+import com.chalabysolutions.gdorders.ui.views.StatusBar;
 import jakarta.annotation.PostConstruct;
 import org.springframework.stereotype.Service;
 

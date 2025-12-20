@@ -1,11 +1,10 @@
 package com.chalabysolutions.gdorders.ui.views.accounts;
 
 import com.chalabysolutions.gdorders.service.AccountDataService;
-import com.chalabysolutions.gdorders.service.SettingsService;
 import com.chalabysolutions.gdorders.ui.layout.MainLayout;
+import com.chalabysolutions.gdorders.ui.views.StatusBar;
 import com.chalabysolutions.gdorders.ui.views.accounts.components.AccountsGrid;
 import com.chalabysolutions.gdorders.ui.views.accounts.logic.AccountsPresenter;
-import com.chalabysolutions.gdorders.ui.views.orders.components.StatusBar;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.PreserveOnRefresh;

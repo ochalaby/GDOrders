@@ -3,7 +3,7 @@ package com.chalabysolutions.gdorders.ui.views.settings;
 import com.chalabysolutions.gdorders.service.SettingsService;
 import com.chalabysolutions.gdorders.ui.layout.MainLayout;
 import com.chalabysolutions.gdorders.ui.views.StatusLevel;
-import com.chalabysolutions.gdorders.ui.views.settings.components.StatusBar;
+import com.chalabysolutions.gdorders.ui.views.StatusBar;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.textfield.TextField;

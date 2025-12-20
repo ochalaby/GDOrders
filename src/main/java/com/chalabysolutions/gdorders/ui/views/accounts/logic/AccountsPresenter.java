@@ -3,12 +3,11 @@ package com.chalabysolutions.gdorders.ui.views.accounts.logic;
 import com.chalabysolutions.gdorders.io.XmlAccountReader;
 import com.chalabysolutions.gdorders.model.accounts.Account;
 import com.chalabysolutions.gdorders.service.*;
+import com.chalabysolutions.gdorders.ui.views.StatusBar;
 import com.chalabysolutions.gdorders.ui.views.StatusLevel;
 import com.chalabysolutions.gdorders.ui.views.accounts.AccountAddressRow;
 import com.chalabysolutions.gdorders.ui.views.accounts.components.AccountsGrid;
-import com.chalabysolutions.gdorders.ui.views.orders.components.StatusBar;
 
-import java.io.*;
 import java.util.List;
 import java.util.stream.Collectors;
 

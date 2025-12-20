@@ -5,10 +5,10 @@ import com.chalabysolutions.gdorders.model.accounts.AccountAddress;
 import com.chalabysolutions.gdorders.model.mapping.AddressMapping;
 import com.chalabysolutions.gdorders.service.AccountDataService;
 import com.chalabysolutions.gdorders.service.MappingDataService;
+import com.chalabysolutions.gdorders.ui.views.StatusBar;
 import com.chalabysolutions.gdorders.ui.views.StatusLevel;
 import com.chalabysolutions.gdorders.ui.views.mapping.components.MappingForm;
 import com.chalabysolutions.gdorders.ui.views.mapping.components.MappingGrid;
-import com.chalabysolutions.gdorders.ui.views.mapping.components.StatusBar;
 
 import java.util.List;
 

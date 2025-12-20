@@ -5,11 +5,11 @@ import com.chalabysolutions.gdorders.io.XmlOrderWriter;
 import com.chalabysolutions.gdorders.model.accounts.Account;
 import com.chalabysolutions.gdorders.model.orders.Order;
 import com.chalabysolutions.gdorders.service.*;
+import com.chalabysolutions.gdorders.ui.views.StatusBar;
 import com.chalabysolutions.gdorders.ui.views.StatusLevel;
 import com.chalabysolutions.gdorders.ui.views.orders.components.CustomerOrdersGrid;
 import com.chalabysolutions.gdorders.ui.views.orders.components.InternalOrdersGrid;
 import com.chalabysolutions.gdorders.ui.views.orders.components.OrderLinesGrid;
-import com.chalabysolutions.gdorders.ui.views.orders.components.StatusBar;
 import com.vaadin.flow.component.upload.Upload;
 import com.vaadin.flow.component.upload.receivers.MemoryBuffer;
 
