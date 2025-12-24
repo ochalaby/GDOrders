@@ -48,10 +48,7 @@ public class MappingPresenter {
     }
 
     public List<AccountAddress> getAvailableAddresses(Account acc) {
-        return acc.getAddresses().stream()
-                .filter(a -> mappingService.getAddressMapping().stream()
-                        .noneMatch(m -> m.getInternalAddressId().equals(a.getId())))
-                .toList();
+        return mappingService.getAvailableInternalAddresses(acc);
     }
 
     public void reloadMappings() {

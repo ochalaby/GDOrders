@@ -9,15 +9,16 @@ import java.util.List;
 
 public class AccountSelector extends VerticalLayout {
 
+    private final OrdersPresenter presenter;
     private final ComboBox<Account> accountSelect = new ComboBox<>();
 
     public AccountSelector(OrdersPresenter presenter) {
         setPadding(false);
         setSpacing(false);
 
+        this.presenter = presenter;
         accountSelect.setItemLabelGenerator(Account::getName);
         accountSelect.setItems(presenter.getAccounts());
-        accountSelect.setValue(presenter.getSelectedAccount());
         accountSelect.setPlaceholder("Selecteer account");
         accountSelect.setWidth("250px");
 
@@ -28,5 +29,12 @@ public class AccountSelector extends VerticalLayout {
 
     public void setAccounts(List<Account> accounts) {
         accountSelect.setItems(accounts);
+
+        Account selected = presenter.getSelectedAccount();
+        if (selected != null && accounts.contains(selected)) {
+            accountSelect.setValue(selected);
+        } else {
+            accountSelect.clear();
+        }
     }
 }

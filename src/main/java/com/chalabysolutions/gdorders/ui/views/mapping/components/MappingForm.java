@@ -22,9 +22,7 @@ public class MappingForm extends HorizontalLayout {
         accountBox.setWidth("250px");
 
         ComboBox<AccountAddress> deliveryAddressBox = new ComboBox<>("Aflever adres");
-        deliveryAddressBox.setItemLabelGenerator(a -> a.getAddressLine1()
-                + ", " + a.getPostalCode() + " " + a.getCity()
-                + ", " + a.getCountry().getCode()
+        deliveryAddressBox.setItemLabelGenerator(a -> a.getFormattedAddress()
                 + " (" + a.getId() + ")");
         deliveryAddressBox.setWidth("450px");
 

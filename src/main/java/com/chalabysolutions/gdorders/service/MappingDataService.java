@@ -5,6 +5,9 @@ import com.chalabysolutions.gdorders.model.accounts.AccountAddress;
 import com.chalabysolutions.gdorders.model.mapping.AddressMapping;
 import com.chalabysolutions.gdorders.model.mapping.DisplayInfo;
 import com.chalabysolutions.gdorders.model.mapping.MappingConfig;
+import com.chalabysolutions.gdorders.model.orders.Order;
+import com.chalabysolutions.gdorders.ui.views.orders.components.AddressMappingResult;
+import com.chalabysolutions.gdorders.ui.views.orders.components.MissingAddressMapping;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.stereotype.Service;
 
@@ -14,11 +17,13 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 public class MappingDataService {
 
     private final SettingsService settingsService;
+    private final AccountDataService accountService;
     private final ObjectMapper mapper = new ObjectMapper();
     private Path configPath;
 
@@ -26,8 +31,9 @@ public class MappingDataService {
 
     private String errorMessage;
 
-    public MappingDataService(SettingsService settingsService) {
+    public MappingDataService(SettingsService settingsService,  AccountDataService accountService) {
         this.settingsService = settingsService;
+        this.accountService = accountService;
     }
 
     public boolean loadFromSettings(){
@@ -99,6 +105,42 @@ public class MappingDataService {
         return config.getAddressMapping();
     }
 
+    public List<AccountAddress> getAvailableInternalAddresses(Account account) {
+        return account.getAddresses().stream()
+                .filter(a -> config.getAddressMapping().stream()
+                        .noneMatch(m -> m.getInternalAddressId().equals(a.getId())))
+                .toList();
+    }
+
+
+    public List<MissingAddressMapping> findMissingMappingsForOrders(List<Order> orders, Account account) {
+
+        return orders.stream()
+                // alleen orders met een afleveradres
+                .filter(o -> o.getDeliveryAddress() != null)
+
+                // unieke externe adressen
+                .collect(Collectors.toMap(
+                        o -> o.getDeliveryAddress().getId(),
+                        o -> o,
+                        (o1, o2) -> o1
+                ))
+                .values()
+                .stream()
+
+                // mapping bestaat nog niet
+                .filter(o -> findInternalAddressId(o.getDeliveryAddress().getId()) == null)
+
+                // naar DTO voor UI
+                .map(o -> new MissingAddressMapping(
+                        o.getDeliveryAddress().getId(),
+                        o.getDeliveryAddress().getFormattedAddress(),
+                        account.getCode(),
+                        account.getName()
+                ))
+                .toList();
+    }
+
     private AddressMapping createNewAddressMapping(Account account, AccountAddress delivery, String customerId) {
         AddressMapping mapping = new AddressMapping();
         DisplayInfo info = createNewDisplayInfo(account, delivery);
@@ -112,9 +154,19 @@ public class MappingDataService {
         DisplayInfo info = new DisplayInfo();
         info.setAccountName(account.getName());
         info.setAccountCode(account.getCode());
-        info.setDeliveryAddress(delivery.getAddressLine1()+ ", " + delivery.getPostalCode()
-                + " " + delivery.getCity() + ", " + delivery.getCountry().getCode());
+        info.setDeliveryAddress(delivery.getFormattedAddress());
         return info;
+    }
+
+    public void saveMappings(List<AddressMappingResult> mappingResults, Account account) {
+        for  (AddressMappingResult mappingResult : mappingResults) {
+            accountService.findAddressById(mappingResult.internalAddressId()).ifPresent(
+                    internalAddress -> addAddressMapping(
+                            account, internalAddress,
+                            mappingResult.externalAddressId()
+                    )
+            );
+        }
     }
 
     public void addAddressMapping(Account account, AccountAddress delivery, String customerId) {

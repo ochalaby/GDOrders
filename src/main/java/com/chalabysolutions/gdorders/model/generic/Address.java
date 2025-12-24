@@ -13,4 +13,13 @@ public class Address
     private String city;
     private State state;
     private Country country;
+
+    public String getFormattedAddress()
+    {
+        String formattedAddress = addressLine1 + ", " + postalCode + " " + city;
+        if (country != null){
+            formattedAddress += ", " + country.getCode();
+        }
+        return formattedAddress;
+    }
 }

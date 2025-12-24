@@ -3,13 +3,13 @@ package com.chalabysolutions.gdorders.ui.views.orders.logic;
 import com.chalabysolutions.gdorders.io.XmlOrderReader;
 import com.chalabysolutions.gdorders.io.XmlOrderWriter;
 import com.chalabysolutions.gdorders.model.accounts.Account;
+import com.chalabysolutions.gdorders.model.accounts.AccountAddress;
 import com.chalabysolutions.gdorders.model.orders.Order;
 import com.chalabysolutions.gdorders.service.*;
 import com.chalabysolutions.gdorders.ui.views.StatusBar;
 import com.chalabysolutions.gdorders.ui.views.StatusLevel;
-import com.chalabysolutions.gdorders.ui.views.orders.components.CustomerOrdersGrid;
-import com.chalabysolutions.gdorders.ui.views.orders.components.InternalOrdersGrid;
-import com.chalabysolutions.gdorders.ui.views.orders.components.OrderLinesGrid;
+import com.chalabysolutions.gdorders.ui.views.orders.OrdersView;
+import com.chalabysolutions.gdorders.ui.views.orders.components.*;
 import com.vaadin.flow.component.upload.Upload;
 import com.vaadin.flow.component.upload.receivers.MemoryBuffer;
 import com.vaadin.flow.spring.annotation.VaadinSessionScope;
@@ -24,8 +24,10 @@ public class OrdersPresenter {
     private final OrderDataService orderService;
     private final AccountDataService accountService;
     private final SettingsService settingsService;
+    private final MappingDataService mappingService;
     private final OrderConversionService converter;
 
+    private OrdersView view;
     private CustomerOrdersGrid customerOrdersGrid;
     private InternalOrdersGrid internalOrdersGrid;
     private OrderLinesGrid customerOrderLinesGrid;
@@ -40,6 +42,7 @@ public class OrdersPresenter {
         this.orderService = orderService;
         this.accountService = accountService;
         this.settingsService = settingsService;
+        this.mappingService = mappingService;
         this.converter = new OrderConversionService(accountService, mappingService, settingsService);
     }
 
@@ -136,6 +139,15 @@ public class OrdersPresenter {
             return;
         }
 
+        List<MissingAddressMapping> missing =
+                mappingService.findMissingMappingsForOrders(orderService.getCustomerOrders(),
+                        accountService.getSelectedAccount());
+
+        if (!missing.isEmpty()) {
+            openMappingDialog(missing);
+            return;
+        }
+
         List<Order> internal =
                 orderService.getCustomerOrders().stream()
                         .filter(orderService.getSelectedCustomerOrders()::contains)
@@ -152,6 +164,37 @@ public class OrdersPresenter {
 
         status.show(StatusLevel.INFO, "Conversie voltooid.");
     }
+
+    private void openMappingDialog(List<MissingAddressMapping> missing) {
+
+        Account selectedAccount = accountService.getSelectedAccount();
+        List<AccountAddress> availableAddresses = mappingService.getAvailableInternalAddresses(selectedAccount);
+
+        if (availableAddresses.isEmpty()) {
+            status.show(
+                    StatusLevel.ERROR,
+                    "Alle interne afleveradressen zijn al gekoppeld. Controleer de interne adressen lijst en de mappings."
+            );
+            return;
+        }
+
+        AddressMappingDialog dialog =
+                new AddressMappingDialog(
+                        missing,
+                        availableAddresses,
+                        savedMappings -> {
+                            mappingService.saveMappings(savedMappings, selectedAccount);
+                            status.show(
+                                    StatusLevel.INFO,
+                                    savedMappings.size() + " adres-mappings aangemaakt"
+                            );
+                            convertOrders(); // hervat automatisch
+                        }
+                );
+
+        view.showAddressMappingDialog(dialog);
+    }
+
 
     public void exportInternalOrders() {
         if (orderService.getSelectedInternalOrders().isEmpty()) {
@@ -191,6 +234,9 @@ public class OrdersPresenter {
     }
 
     /* ---- Links to UI components ---- */
+    public void setView(OrdersView view) {
+        this.view = view;
+    }
 
     public void setCustomerGrids(CustomerOrdersGrid customerOrdersGrid, OrderLinesGrid customerOrderLinesGrid) {
         this.customerOrdersGrid = customerOrdersGrid;

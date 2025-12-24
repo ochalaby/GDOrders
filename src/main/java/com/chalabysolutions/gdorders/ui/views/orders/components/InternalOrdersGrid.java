@@ -53,16 +53,7 @@ public class InternalOrdersGrid extends Grid<Order> {
 
         DeliveryAddress deliveryAddress = order.getDeliveryAddress();
         if (deliveryAddress != null) {
-            String line1 = deliveryAddress.getAddressLine1();
-            String postalCode = deliveryAddress.getPostalCode();
-            String city = deliveryAddress.getCity();
-
-            addressInfo += line1 + ", " + postalCode + " " + city;
-
-            Country country = deliveryAddress.getCountry();
-            if (country != null) {
-                addressInfo += ", "  + country.getCode();
-            }
+            addressInfo = deliveryAddress.getFormattedAddress();
         }
 
         return addressInfo;

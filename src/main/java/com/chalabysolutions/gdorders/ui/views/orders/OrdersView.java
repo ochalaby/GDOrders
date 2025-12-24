@@ -32,6 +32,7 @@ public class OrdersView extends VerticalLayout {
         setSizeFull();
 
         OrdersPresenter p = new OrdersPresenter(data, account, mapping, settings);
+        p.setView(this);
 
         // Header row (account selector and order upload)
         AccountSelector accountSelector = new AccountSelector(p);
@@ -81,4 +82,10 @@ public class OrdersView extends VerticalLayout {
             }
         });
     }
+
+    public void showAddressMappingDialog(AddressMappingDialog dialog) {
+        add(dialog);
+        dialog.open();
+    }
+
 }
