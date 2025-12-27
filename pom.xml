@@ -203,7 +203,7 @@
                     <filters>
                         <filter>src/main/distribution/filter.properties</filter>
                     </filters>
-                    <finalName>GDOrdersConverter</finalName>
+                    <finalName>GDOrdersConverter-${project.version}</finalName>
                 </configuration>
                 <executions>
                     <execution>

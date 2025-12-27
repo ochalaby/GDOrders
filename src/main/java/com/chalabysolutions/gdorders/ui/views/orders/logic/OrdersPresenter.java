@@ -128,7 +128,11 @@ public class OrdersPresenter {
         }
     }
 
-    public void convertOrders() {
+    public void convertOrders(){
+        convertOrders(true);
+    }
+
+    public void convertOrders(boolean checkMapping) {
         if (accountService.getSelectedAccount() == null) {
             status.show(StatusLevel.ERROR, "Kies eerst een account.");
             return;
@@ -139,13 +143,15 @@ public class OrdersPresenter {
             return;
         }
 
-        List<MissingAddressMapping> missing =
-                mappingService.findMissingMappingsForOrders(orderService.getCustomerOrders(),
-                        accountService.getSelectedAccount());
+        if (checkMapping) {
+            List<MissingAddressMapping> missing =
+                    mappingService.findMissingMappingsForOrders(orderService.getCustomerOrders(),
+                            accountService.getSelectedAccount());
 
-        if (!missing.isEmpty()) {
-            openMappingDialog(missing);
-            return;
+            if (!missing.isEmpty()) {
+                openMappingDialog(missing);
+                return;
+            }
         }
 
         List<Order> internal =
@@ -188,7 +194,7 @@ public class OrdersPresenter {
                                     StatusLevel.INFO,
                                     savedMappings.size() + " adres-mappings aangemaakt"
                             );
-                            convertOrders(); // hervat automatisch
+                            convertOrders(false); // hervat automatisch (zonder mapping check)
                         }
                 );
 
